@@ -1,0 +1,102 @@
+[
+  {
+    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
+    "coga_pattern": "Make the Purpose of Your Page Clear",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Ambiguity Intolerance",
+    "llm_operationalization": "The coding assistant should automatically generate or suggest a concise, prominent page-purpose statement (e.g., title, intro, and metadata) that clearly tells users what the page is for and what they can do there.",
+    "value_mapping_justification": "Clear page purpose reduces uncertainty and helps users feel safe and oriented, which directly supports Security—Personal by making the environment predictable and understandable.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
+    "coga_pattern": "Use a Familiar Hierarchy and Design",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Ambiguity Intolerance",
+    "llm_operationalization": "When generating or refactoring UI/code, the assistant should preserve conventional information hierarchy and familiar layout patterns (e.g., standard headings, navigation, form order, and primary actions) unless explicitly instructed otherwise, and it should flag any deviation with a clear explanation.",
+    "value_mapping_justification": "A familiar hierarchy reduces uncertainty and makes interfaces more predictable, directly supporting Personal Security by helping users feel safe, oriented, and confident about what to do next.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
+    "coga_pattern": "Use a Consistent Visual Design",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Set-Shifting Cost",
+    "llm_operationalization": "The coding assistant should generate and preserve a stable visual system across screens—reusing the same component styles, spacing, colors, iconography, and interaction patterns unless a documented exception is needed.",
+    "value_mapping_justification": "Consistent visual design supports Security—Personal because predictable, familiar interfaces reduce uncertainty and help users feel safe and oriented when understanding and using the product.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
+    "coga_pattern": "Make Each Step Clear",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should break tasks into explicit, numbered micro-steps with a clear next action, prerequisites, and expected outcome for each step, rather than presenting a large ambiguous workflow.",
+    "value_mapping_justification": "Making each step clear protects Personal Security by reducing uncertainty and preventing mistakes, helping users feel safe and in control while completing a task.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
+    "coga_pattern": "Clearly Identify Controls and Their Use",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Ambiguity Intolerance",
+    "llm_operationalization": "When generating or refactoring UI code, the assistant should ensure every interactive control has an explicit, plain-language label and, where needed, a short usage hint or accessible description that makes its purpose and expected action immediately clear.",
+    "value_mapping_justification": "Clearly identifying controls reduces uncertainty and helps users feel safe and oriented when interacting with software, which directly aligns with Security—Personal's emphasis on personal safety, stability, and predictability.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
+    "coga_pattern": "Make the Relationship Clear Between Controls and the Content They Affect",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "When generating or refactoring UI code, the assistant should explicitly bind each control to its target content with clear labels, IDs, ARIA relationships, and nearby explanatory text, and flag any control whose effect is ambiguous or distant from the affected content.",
+    "value_mapping_justification": "This pattern supports Security—Personal because clearly linking controls to their effects reduces uncertainty and helps users feel safe, oriented, and in control when interacting with the interface.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
+    "coga_pattern": "Use Icons that Help the User",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Ambiguity Intolerance",
+    "llm_operationalization": "When generating or reviewing UI code, the assistant should recommend clear, familiar, consistently labeled icons with accessible text alternatives and avoid ambiguous or decorative icons that could obscure meaning.",
+    "value_mapping_justification": "Helpful icons reduce uncertainty and make interface meaning more immediately legible, supporting a user's sense of personal safety and confidence when navigating digital tasks.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Find What They Need",
+    "coga_pattern": "Make it Easy to Find the Most Important Tasks and Features",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should surface the highest-priority tasks and features first, keep them consistently placed and labeled, and generate UI code that highlights primary actions while de-emphasizing secondary options.",
+    "value_mapping_justification": "This pattern supports Security—Personal because making essential tasks easy to locate reduces uncertainty, prevents users from missing critical actions, and helps them feel safe and in control while navigating the interface.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Find What They Need",
+    "coga_pattern": "Make the Site Hierarchy Easy to Understand and Navigate",
+    "schwartz_value": "Self-Direction—Thought",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should generate and refactor information architecture so pages, labels, breadcrumbs, and navigation menus expose a clear, consistent hierarchy with minimal nesting and explicit parent-child relationships.",
+    "value_mapping_justification": "This pattern supports Self-Direction—Thought because a clear site hierarchy helps users understand options, orient themselves, and independently choose where to go without relying on external guidance.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  },
+  {
+    "coga_objective": "Help Users Find What They Need",
+    "coga_pattern": "Use a Clear and Understandable Page Structure",
+    "schwartz_value": "Security—Personal",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should generate and refactor UI code to use consistent headings, landmarks, grouping, and predictable navigation so users can quickly orient themselves and locate content without holding the page structure in memory.",
+    "value_mapping_justification": "Clear page structure supports Security—Personal because it reduces uncertainty and cognitive strain, helping users feel safe, oriented, and in control while navigating a page.",
+    "_extraction_status": "candidate_for_verification",
+    "_verification_note": "MUST be manually reviewed before marking as verified"
+  }
+]
