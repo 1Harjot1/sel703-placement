@@ -1,65 +1,272 @@
 [
   {
+    "id": 1,
     "coga_objective": "Help Users Understand What Things Are and How to Use Them",
     "coga_pattern": "Make the Purpose of Your Page Clear",
-    "schwartz_value": "Security—Personal",
+    "schwartz_value": "Security\u2014Personal",
     "executive_dysfunction": "Ambiguity Intolerance",
-    "llm_operationalization": "The coding assistant should automatically generate or suggest a concise, prominent page-purpose statement (e.g., title, intro, and metadata) that clearly tells users what the page is for and what they can do there.",
-    "value_mapping_justification": "Clear page purpose reduces uncertainty and helps users feel safe and oriented, which directly supports Security—Personal by making the environment predictable and understandable.",
-    "_extraction_status": "verified"
+    "llm_operationalization": "The coding assistant should automatically generate or suggest a concise, prominent purpose statement (e.g., title, intro, and metadata) that clearly tells the user what the current task or tool is for and what they can do with it.",
+    "value_mapping_justification": "Clear purpose reduces uncertainty and helps users feel safe and oriented, making the environment predictable\u2014directly supporting Security\u2014Personal.",
+    "_extraction_status": "candidate_for_verification"
   },
   {
-    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
-    "coga_pattern": "Use a Familiar Hierarchy and Design",
-    "schwartz_value": "Security—Personal",
-    "executive_dysfunction": "Ambiguity Intolerance",
-    "llm_operationalization": "When generating or refactoring UI/code, the assistant should preserve conventional information hierarchy and familiar layout patterns (e.g., standard headings, navigation, form order, and primary actions) unless explicitly instructed otherwise, and it should flag any deviation with a clear explanation.",
-    "value_mapping_justification": "A familiar hierarchy reduces uncertainty and makes interfaces more predictable, directly supporting Personal Security by helping users feel safe, oriented, and confident about what to do next.",
-    "_extraction_status": "verified"
-  },
-  {
+    "id": 2,
     "coga_objective": "Help Users Understand What Things Are and How to Use Them",
     "coga_pattern": "Use a Consistent Visual Design",
-    "schwartz_value": "Security—Personal",
+    "schwartz_value": "Security\u2014Personal",
     "executive_dysfunction": "Set-Shifting Cost",
-    "llm_operationalization": "The coding assistant should generate and preserve a stable visual system across screens—reusing the same component styles, spacing, colors, iconography, and interaction patterns unless a documented exception is needed.",
-    "value_mapping_justification": "Consistent visual design supports Security—Personal because predictable, familiar interfaces reduce uncertainty and help users feel safe and oriented when understanding and using the product.",
-    "_extraction_status": "verified"
+    "llm_operationalization": "The coding assistant should generate and preserve a stable visual system across screens\u2014reusing the same component styles, spacing, colors, iconography, and interaction patterns unless a documented exception is needed.",
+    "value_mapping_justification": "Consistent visual design supports Security\u2014Personal because predictable, familiar interfaces reduce uncertainty. The Set-Shifting Cost dysfunction specifically captures why visual inconsistency is expensive for ADHD/ASD developers\u2014each change in convention forces a new mental model re-initialization.",
+    "_extraction_status": "candidate_for_verification"
   },
   {
+    "id": 3,
     "coga_objective": "Help Users Understand What Things Are and How to Use Them",
     "coga_pattern": "Make Each Step Clear",
-    "schwartz_value": "Security—Personal",
+    "schwartz_value": "Security\u2014Personal",
     "executive_dysfunction": "Working Memory Overload",
     "llm_operationalization": "The coding assistant should break tasks into explicit, numbered micro-steps with a clear next action, prerequisites, and expected outcome for each step, rather than presenting a large ambiguous workflow.",
-    "value_mapping_justification": "Making each step clear protects Personal Security by reducing uncertainty and preventing mistakes, helping users feel safe and in control while completing a task.",
-    "_extraction_status": "verified"
+    "value_mapping_justification": "Explicit steps reduce uncertainty and prevent mistakes, helping users feel safe and in control\u2014the core of Security\u2014Personal.",
+    "_extraction_status": "candidate_for_verification"
   },
   {
-    "coga_objective": "Help Users Understand What Things Are and How to Use Them",
-    "coga_pattern": "Make the Relationship Clear Between Controls and the Content They Affect",
-    "schwartz_value": "Security—Personal",
-    "executive_dysfunction": "Working Memory Overload",
-    "llm_operationalization": "When generating or refactoring UI code, the assistant should explicitly bind each control to its target content with clear labels, IDs, ARIA relationships, and nearby explanatory text, and flag any control whose effect is ambiguous or distant from the affected content.",
-    "value_mapping_justification": "This pattern supports Security—Personal because clearly linking controls to their effects reduces uncertainty and helps users feel safe, oriented, and in control when interacting with the interface.",
-    "_extraction_status": "verified"
-  },
-  {
+    "id": 4,
     "coga_objective": "Help Users Understand What Things Are and How to Use Them",
     "coga_pattern": "Use Icons that Help the User",
-    "schwartz_value": "Security—Personal",
+    "schwartz_value": "Security\u2014Personal",
     "executive_dysfunction": "Ambiguity Intolerance",
     "llm_operationalization": "When generating or reviewing UI code, the assistant should recommend clear, familiar, consistently labeled icons with accessible text alternatives and avoid ambiguous or decorative icons that could obscure meaning.",
-    "value_mapping_justification": "Helpful icons reduce uncertainty and make interface meaning more immediately legible, supporting a user's sense of personal safety and confidence when navigating digital tasks.",
-    "_extraction_status": "verified"
+    "value_mapping_justification": "Helpful icons reduce interpretive uncertainty, supporting a sense of personal safety and confidence when navigating a tool.",
+    "_extraction_status": "candidate_for_verification"
   },
   {
+    "id": 5,
     "coga_objective": "Help Users Find What They Need",
     "coga_pattern": "Make the Site Hierarchy Easy to Understand and Navigate",
-    "schwartz_value": "Self-Direction—Thought",
+    "schwartz_value": "Self-Direction\u2014Thought",
     "executive_dysfunction": "Working Memory Overload",
     "llm_operationalization": "The coding assistant should generate and refactor information architecture so pages, labels, breadcrumbs, and navigation menus expose a clear, consistent hierarchy with minimal nesting and explicit parent-child relationships.",
-    "value_mapping_justification": "This pattern supports Self-Direction—Thought because a clear site hierarchy helps users understand options, orient themselves, and independently choose where to go without relying on external guidance.",
-    "_extraction_status": "verified"
+    "value_mapping_justification": "A clear hierarchy enables users to independently understand their options and choose where to go without relying on external guidance\u2014the defining feature of Self-Direction\u2014Thought.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 6,
+    "coga_objective": "Help Users Find What They Need",
+    "coga_pattern": "Break Media into Chunks",
+    "schwartz_value": "Self-Direction\u2014Thought",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "When generating or refactoring content, the assistant should split long explanations, code walkthroughs, or logs into short labeled sections with summaries, headings, and optional step-by-step navigation so users can process one chunk at a time.",
+    "value_mapping_justification": "Chunking gives users clearer, more manageable information structures that enable independent understanding without being overwhelmed\u2014preserving autonomous thought.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 7,
+    "coga_objective": "Help Users Find What They Need",
+    "coga_pattern": "Provide Search",
+    "schwartz_value": "Self-Direction\u2014Thought",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should add a prominent, queryable search interface with autocomplete, filters, and semantic retrieval so users can quickly locate relevant content or code without remembering exact terms.",
+    "value_mapping_justification": "Search enables users to independently find information on their own terms without having to hold reference paths in memory.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 8,
+    "coga_objective": "Use Clear and Understandable Content",
+    "coga_pattern": "Use Clear Words",
+    "schwartz_value": "Universalism\u2014Concern",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should automatically replace jargon, abbreviations, and ambiguous terms with plain-language alternatives and provide concise definitions or tooltips when specialized terms are unavoidable.",
+    "value_mapping_justification": "Plain, accessible language reduces exclusion and helps a broad range of users understand content\u2014the direct expression of Universalism\u2014Concern.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 9,
+    "coga_objective": "Use Clear and Understandable Content",
+    "coga_pattern": "Use a Simple Tense and Voice",
+    "schwartz_value": "Universalism\u2014Concern",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "When generating or rewriting code comments, prompts, documentation, or UI text, the assistant should prefer short, active, present-tense sentences and avoid nested clauses, passive constructions, and unnecessary temporal complexity.",
+    "value_mapping_justification": "Simple language reduces cognitive burden and makes information more accessible to everyone\u2014the hallmark of Universalism\u2014Concern.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 10,
+    "coga_objective": "Use Clear and Understandable Content",
+    "coga_pattern": "Use Literal Language",
+    "schwartz_value": "Universalism\u2014Concern",
+    "executive_dysfunction": "Ambiguity Intolerance",
+    "llm_operationalization": "The LLM should avoid idioms, metaphors, sarcasm, and figurative phrasing, and instead rewrite instructions, comments, and UI text in direct, concrete, unambiguous language.",
+    "value_mapping_justification": "Literal language makes information broadly understandable and reduces the risk of exclusion from figurative wording\u2014core to Universalism\u2014Concern.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 11,
+    "coga_objective": "Use Clear and Understandable Content",
+    "coga_pattern": "Provide Summary of Long Documents and Media",
+    "schwartz_value": "Universalism\u2014Concern",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "When generating or reviewing long content, the LLM should automatically produce a concise, accurate summary that highlights the main purpose, key points, and action items at the top of the document or media transcript.",
+    "value_mapping_justification": "Summaries increase equitable access to information by reducing cognitive burden\u2014helping users understand important content regardless of attention, memory, or processing limitations.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 12,
+    "coga_objective": "Use Clear and Understandable Content",
+    "coga_pattern": "Separate Each Instruction",
+    "schwartz_value": "Conformity\u2014Rules",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should break multi-step guidance into numbered, single-action instructions and present them one at a time, avoiding compound sentences and bundled requirements.",
+    "value_mapping_justification": "Separating instructions makes expectations explicit and orderly, reducing the chance of missing a required step\u2014the core of Conformity\u2014Rules. This is the only Conformity value in the set; it is correctly distinctive.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 13,
+    "coga_objective": "Use Clear and Understandable Content",
+    "coga_pattern": "Explain Implied Content",
+    "schwartz_value": "Universalism\u2014Concern",
+    "executive_dysfunction": "Ambiguity Intolerance",
+    "llm_operationalization": "When generating or reviewing code, the assistant should detect implicit assumptions, jargon, acronyms, and unstated dependencies, then add brief plain-language explanations that make the intended meaning explicit.",
+    "value_mapping_justification": "Explaining implicit content reduces exclusion for people who do not share assumed background knowledge\u2014directly addressing Universalism\u2014Concern.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 14,
+    "coga_objective": "Help Users Avoid Mistakes and Know How to Correct Them",
+    "coga_pattern": "Let Users Go Back",
+    "schwartz_value": "Security\u2014Personal",
+    "executive_dysfunction": "Inhibition Deficit",
+    "llm_operationalization": "The coding assistant should always provide an explicit undo/revert path for any suggested code change, including rollback instructions, diff reversal, or a safe checkpoint to return to the prior state.",
+    "value_mapping_justification": "A clear undo path reduces consequences of irreversible mistakes and preserves a sense of safety and control\u2014Security\u2014Personal. The Inhibition Deficit pairing is strong: impulsive commits are the primary failure mode this counters.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 15,
+    "coga_objective": "Help Users Avoid Mistakes and Know How to Correct Them",
+    "coga_pattern": "Notify Users of Costs at Start of Task",
+    "schwartz_value": "Security\u2014Personal",
+    "executive_dysfunction": "Planning Deficit",
+    "llm_operationalization": "Before starting a requested coding task, the assistant explicitly states likely time, effort, risk, and side effects, asks for confirmation, and offers lower-cost alternatives or a staged plan.",
+    "value_mapping_justification": "Upfront cost disclosure reduces surprise and avoidable harm, protecting Security\u2014Personal. Planning Deficit is the correct dysfunction: the pattern addresses the failure to anticipate consequences before acting.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 16,
+    "coga_objective": "Help Users Avoid Mistakes and Know How to Correct Them",
+    "coga_pattern": "Accept Different Input Formats",
+    "schwartz_value": "Universalism\u2014Tolerance",
+    "executive_dysfunction": "Cognitive Flexibility Deficit",
+    "llm_operationalization": "The coding assistant should accept and correctly interpret multiple equivalent ways of expressing the same request (natural language, pseudocode, snippets, varied command phrasing) and normalize them into a single actionable interpretation without forcing a rigid format.",
+    "value_mapping_justification": "Accepting varied input formats reflects Universalism\u2014Tolerance by respecting diversity in communication style and reducing exclusion caused by rigid expectations. The Cognitive Flexibility Deficit pairing is distinctive and correct: users who cannot easily reformat their mental model to match a system's expected syntax are precisely the population this pattern protects.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 17,
+    "coga_objective": "Help Users Avoid Mistakes and Know How to Correct Them",
+    "coga_pattern": "Avoid Data Loss and Timeouts",
+    "schwartz_value": "Security\u2014Personal",
+    "executive_dysfunction": "Time Blindness",
+    "llm_operationalization": "The coding assistant should automatically preserve user work with frequent checkpoints, warn before long-running operations or session expiry, and offer safe recovery options such as autosave, draft restoration, and resumable tasks.",
+    "value_mapping_justification": "Preventing loss of work is a direct expression of Security\u2014Personal. Time Blindness is the correct dysfunction: developers with ADHD/ASD frequently lose track of elapsed time, making timeout warnings specifically protective.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 18,
+    "coga_objective": "Help Users Avoid Mistakes and Know How to Correct Them",
+    "coga_pattern": "Provide Feedback",
+    "schwartz_value": "Security\u2014Personal",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should immediately confirm what it understood, flag likely mistakes in the current change, and give concise, actionable correction steps with clear success/failure feedback after each action.",
+    "value_mapping_justification": "Timely feedback reduces uncertainty and helps users feel safe and oriented\u2014core to Security\u2014Personal.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 19,
+    "coga_objective": "Help Users Focus",
+    "coga_pattern": "Limit Interruptions",
+    "schwartz_value": "Security\u2014Personal",
+    "executive_dysfunction": "Inhibition Deficit",
+    "llm_operationalization": "The coding assistant should batch non-urgent suggestions, avoid pop-up interruptions during active editing, and only surface alerts at natural pause points or when the user explicitly requests help.",
+    "value_mapping_justification": "Preserving a predictable, low-disruption interaction environment reduces stress and unexpected intrusions\u2014Security\u2014Personal. The Inhibition Deficit link is strong: unsolicited interruptions are particularly costly for developers who struggle to re-inhibit distractors.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 20,
+    "coga_objective": "Help Users Focus",
+    "coga_pattern": "Make Short Critical Paths",
+    "schwartz_value": "Self-Direction\u2014Action",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should default to the shortest viable implementation path by generating minimal-step instructions, collapsing optional branches, and surfacing only the next required action until the task is complete.",
+    "value_mapping_justification": "Short critical paths reduce unnecessary procedural burden and let users act efficiently and autonomously\u2014the direct expression of Self-Direction\u2014Action.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 21,
+    "coga_objective": "Ensure Processes Do Not Rely on Memory",
+    "coga_pattern": "Provide a Login that Does Not Rely on Memory or Other Cognitive Skills",
+    "schwartz_value": "Security\u2014Personal",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "When generating authentication flows, the assistant should default to passwordless or low-memory login options such as passkeys, magic links, and device-based sign-in, while avoiding designs that require users to recall complex credentials.",
+    "value_mapping_justification": "Removing memory-dependent barriers to access reduces the risk and stress of being locked out, protecting Security\u2014Personal.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 22,
+    "coga_objective": "Ensure Processes Do Not Rely on Memory",
+    "coga_pattern": "Do Not Rely on Users Calculations or Memorizing Information",
+    "schwartz_value": "Security\u2014Personal",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should automatically compute, prefill, and surface needed values, formulas, and reminders in-context so users never have to remember or manually calculate them.",
+    "value_mapping_justification": "Reducing reliance on working memory for calculations protects users from error and loss of control\u2014Security\u2014Personal.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 23,
+    "coga_objective": "Provide Help and Support",
+    "coga_pattern": "Provide Human Help",
+    "schwartz_value": "Benevolence\u2014Caring",
+    "executive_dysfunction": "Ambiguity Intolerance",
+    "llm_operationalization": "When the user appears stuck or asks for help, the assistant should proactively offer a clear option to connect them with a human expert, explain what the human can help with, and make the handoff easy and low-friction.",
+    "value_mapping_justification": "Human help prioritizes responsive, supportive assistance that reduces user distress\u2014directly expressing Benevolence\u2014Caring. This is intentionally the pattern this tool does NOT implement (per the brief), which makes it theoretically important as the boundary of the automation.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 24,
+    "coga_objective": "Provide Help and Support",
+    "coga_pattern": "Provide Alternative Content for Complex Information and Tasks",
+    "schwartz_value": "Universalism\u2014Concern",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "When a task, error, or code path is complex, the assistant should automatically provide a simpler explanation, step-by-step summary, or alternative representation such as examples, pseudocode, or plain-language guidance alongside the original content.",
+    "value_mapping_justification": "Alternative content reduces barriers for people with diverse cognitive needs and supports equitable access to understanding\u2014Universalism\u2014Concern.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 25,
+    "coga_objective": "Provide Help and Support",
+    "coga_pattern": "Provide Reminders",
+    "schwartz_value": "Security\u2014Personal",
+    "executive_dysfunction": "Working Memory Overload",
+    "llm_operationalization": "The coding assistant should proactively surface timely, context-aware reminders about pending steps, forgotten requirements, and next actions in the workflow, especially when the user returns after interruption or context loss.",
+    "value_mapping_justification": "Reminders reduce risk of missed obligations and maintain a stable sense of control over tasks\u2014Security\u2014Personal.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 26,
+    "coga_objective": "Support Adaptation and Personalization",
+    "coga_pattern": "Let Users Control When the Content Moves or Changes",
+    "schwartz_value": "Self-Direction\u2014Action",
+    "executive_dysfunction": "Inhibition Deficit",
+    "llm_operationalization": "The coding assistant should default to non-animated, non-auto-updating behavior and generate explicit user-controlled toggles, pause/resume controls, and reduced-motion options for any moving or changing content.",
+    "value_mapping_justification": "Giving users direct control over when interface changes occur preserves autonomy to act at their own pace\u2014Self-Direction\u2014Action. Inhibition Deficit is the right pairing: involuntary motion captures attention and disrupts inhibitory control.",
+    "_extraction_status": "candidate_for_verification"
+  },
+  {
+    "id": 27,
+    "coga_objective": "Support Adaptation and Personalization",
+    "coga_pattern": "Enable APIs and Extensions",
+    "schwartz_value": "Self-Direction\u2014Action",
+    "executive_dysfunction": "Cognitive Flexibility Deficit",
+    "llm_operationalization": "The coding assistant should generate and expose modular, documented APIs, plugin hooks, and extension points so users can swap behaviors, add custom rules, or integrate assistive tools without modifying core logic.",
+    "value_mapping_justification": "APIs and extensions give users practical control to customize the system to fit their own needs and workflows\u2014Self-Direction\u2014Action. The Cognitive Flexibility Deficit link is strong: users who cannot easily adapt to a rigid system need the system to adapt to them instead.",
+    "_extraction_status": "candidate_for_verification"
   }
 ]
