@@ -1,0 +1,31 @@
+# Local secrets and config
+.env
+*.env
+api_key.txt
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+ENV/
+
+# IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and outputs
+*.log
+taxonomy/extractions/
