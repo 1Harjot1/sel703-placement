@@ -1,0 +1,189 @@
+{
+  "source": "Hou et al. 2024, TOSEM 33(8), DOI 10.1145/3695988",
+  "activity_areas": [
+    "Requirements Engineering",
+    "Software Design",
+    "Software Development",
+    "Software Quality",
+    "Software Maintenance",
+    "Software Management"
+  ],
+  "exclusion_criterion": "Tasks representing autonomous LLM background analysis without developer-in-the-loop interaction (e.g., Bug prediction, Patch correctness prediction, Code representation, Invariant prediction) were excluded. In contrast, developer-in-the-loop quality and maintenance tasks (e.g., Vulnerability detection, Defect detection, Bug localization, Code clone detection) were retained because developers actively review, triage, and act upon the assistant's output during the task execution.",
+  "tasks": [
+    {
+      "task_name": "Requirements analysis and evaluation",
+      "activity_area": "Requirements Engineering",
+      "source_section": "Section 5.1, Table 10",
+      "previous_task_name": "Requirements Engineering & User Story Specification",
+      "description": "Analyzing textual requirements from software stakeholders during software construction or maintenance, evaluating completeness, and resolving specification conflicts."
+    },
+    {
+      "task_name": "Requirements classification",
+      "activity_area": "Requirements Engineering",
+      "source_section": "Section 5.1, Table 10",
+      "previous_task_name": null,
+      "description": "Categorizing raw requirement statements into functional, non-functional, security, and domain-specific requirement categories."
+    },
+    {
+      "task_name": "Use cases generation",
+      "activity_area": "Requirements Engineering",
+      "source_section": "Section 5.1, Table 10",
+      "previous_task_name": null,
+      "description": "Synthesizing structured use cases, actor interactions, and flow of events from high-level software requirement descriptions."
+    },
+    {
+      "task_name": "System design",
+      "activity_area": "Software Design",
+      "source_section": "Section 5.2, Table 10",
+      "previous_task_name": "Software Architecture & System Design",
+      "description": "Formulating high-level software component structures, architectural patterns, and inter-module interaction models."
+    },
+    {
+      "task_name": "Software specification synthesis",
+      "activity_area": "Software Design",
+      "source_section": "Section 5.2, Table 10",
+      "previous_task_name": null,
+      "description": "Generating technical software design specifications and module contracts from requirement specifications."
+    },
+    {
+      "task_name": "Code generation",
+      "activity_area": "Software Development",
+      "source_section": "Section 5.3, Table 10",
+      "previous_task_name": "Code Synthesis & Feature Implementation",
+      "description": "Synthesizing executable code blocks, functions, or feature implementations directly from natural language task prompts or specifications."
+    },
+    {
+      "task_name": "Code completion",
+      "activity_area": "Software Development",
+      "source_section": "Section 5.3, Table 10",
+      "previous_task_name": "Real-time Code Completion",
+      "description": "Completing partially typed code lines, function bodies, or statement blocks during active typing in an editor."
+    },
+    {
+      "task_name": "Code editing",
+      "activity_area": "Software Development",
+      "source_section": "Section 5.3, Table 10",
+      "previous_task_name": "Code Refactoring & Structure Optimization",
+      "description": "Modifying, restructuring, and optimizing existing source code blocks or module implementations for readability, performance, or architectural alignment."
+    },
+    {
+      "task_name": "Code summarization",
+      "activity_area": "Software Development",
+      "source_section": "Section 5.3, Table 10",
+      "previous_task_name": "Code Summarization & Documentation Generation",
+      "description": "Generating high-level natural language summaries, module descriptions, and documentation from code."
+    },
+    {
+      "task_name": "Code search",
+      "activity_area": "Software Development",
+      "source_section": "Section 5.3, Table 10",
+      "previous_task_name": null,
+      "description": "Retrieving relevant code snippets or repository implementations matching natural language query prompts."
+    },
+    {
+      "task_name": "Code translation",
+      "activity_area": "Software Development",
+      "source_section": "Section 5.3, Table 10",
+      "previous_task_name": null,
+      "description": "Translating source code logic from one programming language or paradigm to another while preserving functional intent."
+    },
+    {
+      "task_name": "API recommendation",
+      "activity_area": "Software Development",
+      "source_section": "Section 5.3, Table 10",
+      "previous_task_name": null,
+      "description": "Recommending relevant library APIs, method signatures, and usage patterns for a given developer task context."
+    },
+    {
+      "task_name": "Code comment generation",
+      "activity_area": "Software Development",
+      "source_section": "Section 5.3, Table 10",
+      "previous_task_name": null,
+      "description": "Generating inline docstrings, API comments, and header notes for source code functions and classes."
+    },
+    {
+      "task_name": "Test generation",
+      "activity_area": "Software Quality",
+      "source_section": "Section 5.4, Table 10",
+      "previous_task_name": "Test Case Synthesis & Oracle Generation",
+      "description": "Synthesizing automated unit test suites, test inputs, assertions, and test oracles for software validation."
+    },
+    {
+      "task_name": "Vulnerability detection",
+      "activity_area": "Software Quality",
+      "source_section": "Section 5.4, Table 10",
+      "previous_task_name": null,
+      "description": "Scanning source code for security flaws, unsafe memory operations, and vulnerable API usage patterns."
+    },
+    {
+      "task_name": "Defect detection",
+      "activity_area": "Software Quality",
+      "source_section": "Section 5.4, Table 10",
+      "previous_task_name": null,
+      "description": "Identifying potential software bugs, logic flaws, and runtime anti-patterns in source code."
+    },
+    {
+      "task_name": "Bug localization",
+      "activity_area": "Software Quality",
+      "source_section": "Section 5.4, Table 10",
+      "previous_task_name": null,
+      "description": "Pinpointing specific source files, methods, or lines responsible for reported software bug symptoms."
+    },
+    {
+      "task_name": "Program repair",
+      "activity_area": "Software Maintenance",
+      "source_section": "Section 5.5, Table 10",
+      "previous_task_name": "Program Repair & Defect Fixing",
+      "description": "Diagnosing buggy code and generating patch fixes to pass failing test cases or bug reports."
+    },
+    {
+      "task_name": "Code review",
+      "activity_area": "Software Maintenance",
+      "source_section": "Section 5.5, Table 10",
+      "previous_task_name": "Code Review & Quality Inspection",
+      "description": "Inspecting code changes submitted in pull requests, identifying quality issues, and generating review comments."
+    },
+    {
+      "task_name": "Rename Refactoring",
+      "activity_area": "Software Maintenance",
+      "source_section": "Section 5.5, Table 10",
+      "previous_task_name": null,
+      "description": "Renaming identifiers, function names, or class names across a repository for consistency and readability."
+    },
+    {
+      "task_name": "Debugging",
+      "activity_area": "Software Maintenance",
+      "source_section": "Section 5.5, Table 10",
+      "previous_task_name": null,
+      "description": "Tracing program execution steps, stack traces, and variable states to isolate root causes of runtime errors."
+    },
+    {
+      "task_name": "Bug reproduction",
+      "activity_area": "Software Maintenance",
+      "source_section": "Section 5.5, Table 10",
+      "previous_task_name": null,
+      "description": "Generating reproducible test scripts or steps to reproduce reported bug reports in a target environment."
+    },
+    {
+      "task_name": "Code clone detection",
+      "activity_area": "Software Maintenance",
+      "source_section": "Section 5.5, Table 10",
+      "previous_task_name": null,
+      "description": "Identifying duplicated or near-identical code blocks across a software repository for consolidation."
+    },
+    {
+      "task_name": "Software tool configuration",
+      "activity_area": "Software Management",
+      "source_section": "Section 5.6, Table 10",
+      "previous_task_name": "Environment, CI/CD & Dependency Configuration",
+      "description": "Generating and updating build scripts, environment files, dependency manifests, and continuous integration pipeline configs."
+    },
+    {
+      "task_name": "Effort estimation",
+      "activity_area": "Software Management",
+      "source_section": "Section 5.6, Table 10",
+      "previous_task_name": null,
+      "description": "Estimating development effort, task complexity, and implementation story points for software work items."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+Source URL: https://stackoverflow.com/questions/79984358/why-copilot-does-not-load-language-models-does-not-connect-to-mcp-server-cannot
+Source Platform: Stack Overflow
+Question ID: 79984358
+Title: Why Copilot does not load language models/does not connect to MCP server/cannot even list available servers?
+================================================================================
+
+Copilot is not working very well. I have a free account through my organization and sometimes it works, for instance I have used 14% of my inline suggestions credits, but I cannot use the chat features at all.
+
+
+In VS Code, this often manifests with me asking a question and getting an error "Language model unavailable". If I try to open the language model manager in VS Code, it hangs and does not display any model, not even the predefined ones.
+
+
+Using Copilot CLI I am getting lower-level failures, that might shed some light on the actual problem. After I succesfully login using OAuth and the browser, I get some messages about MCP servers not being available or about connection failures.
+
+
+```
+MCP Servers reloaded: 0 servers connected
+Signed in successfully as *******!
+GitHub MCP Server: Connected
+MCP server 'github-mcp-server' is taking longer than expected to connect.
+Failed to connect to MCP server "github-mcp-server". Execute '/mcp show github-mcp-server' to inspect or check the logs.
+MCP Servers reloaded: 0 servers connected
+Execution failed: Error: error sending request for url (https://api.individual.githubcopilot.com/models): client error (Connect): operation timed out [ETIMEDOUT] 
+
+```
+
+
+If I run `/mcp show github-mcp-server` I get an error that says "failed to initialize MCP client: Send message error Transport" .
+
+
+ 
+
+
+I have tried to log out, re-login, deleted caches, enabled/disabled extensions in VS Code, but so far I had no luck. I am not even sure if it's a network issue (because it surely sounds like one) but everything else is working fine.
+
+
+It could also be an authentication issue. I was cursed with an apostrophe in my last name, which for some reason got incorporated in my first login at my employer, and the GitHub account through which I have access to Copilot (in theory) uses a primary email with an apostrophe.
+
+
+It should be mentioned that until a few weeks ago everything was working fine, right in VS Code.

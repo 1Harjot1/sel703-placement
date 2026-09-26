@@ -1,0 +1,79 @@
+Source URL: https://stackoverflow.com/questions/79947663/what-is-the-best-way-to-use-obsidian-for-vibe-coding-with-github-and-ai-coding-a
+Source Platform: Stack Overflow
+Question ID: 79947663
+Title: What is the best way to use Obsidian for vibe coding with GitHub and AI coding assistants?
+================================================================================
+
+I am experimenting with a workflow where Obsidian becomes a living brain for my coding projects.
+
+
+The goal is not just to write static documentation. I want the knowledge base to grow together with the codebase, so that as the project evolves, the brain also keeps track of:
+
+ 
+ 
+architecture decisions
+
+ 
+ 
+important code changes
+
+ 
+ 
+bugs and fixes
+
+ 
+ 
+pending tasks
+
+ 
+ 
+prompts that worked well
+
+ 
+ 
+project constraints
+
+ 
+ 
+setup instructions
+
+ 
+ 
+validation commands
+
+ 
+ 
+useful context for future AI sessions
+
+ 
+ 
+
+The bigger problem I am trying to solve is this:
+
+
+Every time I start a new chat with ChatGPT, Claude, Codex, Cursor, or another AI tool, I usually need to explain the project again: what it does, how it is structured, what has already been decided, what should not be changed, what errors already happened, and what the next step is.
+
+
+I want to reduce that repeated onboarding.
+
+
+The workflow I have in mind is something like this:
+
+
+```
+Code grows → GitHub tracks changes → Obsidian brain gets updated →
+context pack is generated → new AI chat starts with previous project knowledge
+
+```
+
+
+In other words, I want to use Obsidian + GitHub as a portable project memory system, so that I can pass a compact and updated “brain” to any AI coding assistant instead of writing a long prompt from scratch every time.
+
+
+///////////////////////////////////////////////////////////////
+
+
+My main question is:
+
+
+ What is the best practical way to use Obsidian as a living project brain for vibe coding with GitHub and AI coding assistants?

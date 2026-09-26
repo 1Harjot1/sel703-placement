@@ -1,0 +1,154 @@
+[
+  {
+    "id": "1",
+    "name": "Self-Direction—Thought",
+    "higher_order": "Self-Direction",
+    "definition": "Freedom to cultivate one's own ideas and abilities",
+    "se_context": "Developer forms their own mental models, chooses learning paths, and reasons about solutions independently",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "2",
+    "name": "Self-Direction—Action",
+    "higher_order": "Self-Direction",
+    "definition": "Freedom to determine one's own actions",
+    "se_context": "Developer controls their workflow, tool choices, and implementation approach without forced overrides",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "3",
+    "name": "Stimulation",
+    "higher_order": "Stimulation",
+    "definition": "Excitement, novelty, and change",
+    "se_context": "Developer seeks intellectually engaging problems and varied tasks that sustain motivation",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "4",
+    "name": "Hedonism",
+    "higher_order": "Hedonism",
+    "definition": "Pleasure and sensuous gratification for oneself",
+    "se_context": "Developer derives satisfaction from the craft of coding — flow state, solving elegant problems",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "5",
+    "name": "Achievement",
+    "higher_order": "Achievement",
+    "definition": "Personal success through demonstrating competence according to social standards",
+    "se_context": "Developer demonstrates skill through delivered code, passing reviews, and meeting deadlines",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "6",
+    "name": "Power—Dominance",
+    "higher_order": "Power",
+    "definition": "Power through exercising control over people",
+    "se_context": "Developer maintains technical authority and influence over team decisions and code direction",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "7",
+    "name": "Power—Resources",
+    "higher_order": "Power",
+    "definition": "Power through control of material and social resources",
+    "se_context": "Developer controls infrastructure, repositories, deployment pipelines, and access permissions",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "8",
+    "name": "Face",
+    "higher_order": "Power",
+    "definition": "Maintaining one's public image and avoiding humiliation",
+    "se_context": "Developer protects professional reputation during code reviews, demos, and team interactions",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "9",
+    "name": "Security—Personal",
+    "higher_order": "Security",
+    "definition": "Safety in one's immediate environment",
+    "se_context": "Developer relies on predictable tool behaviour and a safe workspace free from sudden disruptions",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "10",
+    "name": "Security—Societal",
+    "higher_order": "Security",
+    "definition": "Safety and stability in the wider society",
+    "se_context": "Developer trusts that the organisation's systems, policies, and infrastructure are stable and fair",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "11",
+    "name": "Conformity—Rules",
+    "higher_order": "Conformity",
+    "definition": "Compliance with rules, laws, and formal obligations",
+    "se_context": "Developer follows coding standards, linting rules, CI/CD requirements, and formal processes",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "12",
+    "name": "Conformity—Interpersonal",
+    "higher_order": "Conformity",
+    "definition": "Avoidance of upsetting or harming other people",
+    "se_context": "Developer avoids breaking team norms, disrupting others' work, or causing merge conflicts",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "13",
+    "name": "Tradition",
+    "higher_order": "Tradition",
+    "definition": "Maintaining and preserving cultural, family, or religious traditions",
+    "se_context": "Developer upholds established engineering patterns, proven practices, and team conventions",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "14",
+    "name": "Humility",
+    "higher_order": "Tradition",
+    "definition": "Recognizing one's insignificance in the larger scheme of things",
+    "se_context": "Developer acknowledges limits of their knowledge and defers to team expertise or established patterns",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "15",
+    "name": "Benevolence—Caring",
+    "higher_order": "Benevolence",
+    "definition": "Devotion to the welfare of ingroup members",
+    "se_context": "Developer helps teammates through mentoring, knowledge sharing, and supportive code reviews",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "16",
+    "name": "Benevolence—Dependability",
+    "higher_order": "Benevolence",
+    "definition": "Being a reliable and trustworthy member of the ingroup",
+    "se_context": "Developer delivers reliable code on time and fulfils commitments to the team",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "17",
+    "name": "Universalism—Concern",
+    "higher_order": "Universalism",
+    "definition": "Commitment to equality, justice, and protection for all people",
+    "se_context": "Developer builds accessible, inclusive software and advocates for equitable practices",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "18",
+    "name": "Universalism—Nature",
+    "higher_order": "Universalism",
+    "definition": "Preservation of the natural environment",
+    "se_context": "Developer considers computational efficiency, energy use, and sustainable infrastructure decisions",
+    "citation": "Schwartz et al. (2012)"
+  },
+  {
+    "id": "19",
+    "name": "Universalism—Tolerance",
+    "higher_order": "Universalism",
+    "definition": "Acceptance and understanding of those who are different from oneself",
+    "se_context": "Developer supports diverse team members and inclusive development processes",
+    "citation": "Schwartz et al. (2012)"
+  }
+]

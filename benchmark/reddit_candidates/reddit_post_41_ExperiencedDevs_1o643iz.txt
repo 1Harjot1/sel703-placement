@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/ExperiencedDevs/comments/1o643iz/i_am_blissfully_using_ai_to_do_absolutely_nothing/
+Subreddit: r/ExperiencedDevs
+Title: I am blissfully using AI to do absolutely nothing useful
+================================================================================
+
+My company started tracking AI usage per engineer. Probably to figure out which ones are the most popular and most frequently used. But with all this “adopt AI or get fired” talk in the industry I’m not taking any chances. So I just started asking my bots to do random things I don’t even care about. The other day I told Claude to examine random directories to “find bugs” or answer questions I already knew the answer to. This morning I told it to make a diagram outlining the exact flow of one of our APIs, at which point it just drew a box around each function and helper method and connected them with arrows. I’m fine with AI and I do use it randomly to help me with certain things. But I have no reason to use a lot of these tools on a daily or even weekly basis. But hey, if they want me to spend their money that bad, why argue. I hope they put together a dollars spent on AI per person tracker later. At least that’d be more fun submitted by /u/thismyone [link] [comments]

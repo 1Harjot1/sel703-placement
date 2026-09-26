@@ -1,0 +1,47 @@
+Source URL: https://stackoverflow.com/questions/78564717/displaying-timestamp-and-username-in-message-prompt-in-go-tcp-chat-application
+Source Platform: Stack Overflow
+Question ID: 78564717
+Title: Displaying Timestamp and Username in Message Prompt in Go TCP Chat Application - go
+================================================================================
+
+I’m working on a TCP chat application in Go where the server allows multiple clients to connect and communicate. I’ve hit a snag with a particular feature and could use some help.
+
+
+Requirement: I need to display a message prompt in the format [timestamp][username] at the cursor’s position while the user is typing their message or waiting to receive a message.
+
+
+Issue: Despite implementing the code below, the timestamp and username do not appear at the cursor’s position when running the program.
+
+
+Code Snippet:
+
+
+```
+func (c *Client) sendMessages(wg *sync.WaitGroup) {
+ defer wg.Done()
+ for {
+ displayPromptWithTimestampAndUsername(c.name)
+
+ msg := utils.ReadInput("")
+
+ if strings.TrimSpace(msg) != "" {
+ utils.SendMessage(c.conn, msg)
+ }
+ }
+}
+
+func displayPromptWithTimestampAndUsername(username string) {
+ currentTime := time.Now().Format("2006-01-02 15:04:05")
+ fmt.Printf("\r[%s][%s]: ", currentTime, username)
+}
+
+```
+
+
+Could anyone provide insights or suggestions on how to ensure the timestamp and username are displayed correctly at the cursor’s position?
+
+
+Any assistance would be greatly appreciated. Thank you!
+
+
+I’ve verified that the displayPromptWithTimestampAndUsername function is being called, but the output isn’t reflected at the cursor’s position as expected

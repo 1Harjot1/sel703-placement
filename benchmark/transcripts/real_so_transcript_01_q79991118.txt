@@ -1,0 +1,53 @@
+Source URL: https://stackoverflow.com/questions/79991118/dxc-is-demanding-a-raypayload-attribute-in-the-shader-but-gives-an-error-if-i
+Source Platform: Stack Overflow
+Question ID: 79991118
+Title: DXC is demanding a [raypayload] attribute in the shader, but gives an error if I insert it
+================================================================================
+
+I (and Github copilot) are at a complete loss. I'm expanding on a generic raytracing example for DirectX using C++ in Visual Studio. All the latest versions. Setting is lib_6_6
+
+
+But when I try to expand the number of textures, I get an error from the hlsl-compiler:
+
+
+```
+ error: type 'HitInfo' used as payload requires that it is annotated with the [raypayload] attribute
+ HitInfo payload;
+ ^
+
+```
+
+
+But if I insert the [raypayload] attribute, I get the error:
+
+
+```
+In file included from shaders\\RayGen.hlsl:28:
+
+shaders/Common.hlsl:5:1: error: an attribute list cannot appear here
+
+\[raypayload\]
+
+^\~\~\~\~\~\~\~\~\~\~\~
+
+```
+
+
+The actual code is:
+
+
+```
+// shaders/Common.hlsl
+
+// ---[ Structures ]---
+
+[raypayload]
+struct HitInfo
+{
+ float4 ShadedColorAndHitT : write(caller, closesthit, miss) : read(caller);
+};
+
+```
+
+
+Does anyone have any idea? It's driving me nuts.

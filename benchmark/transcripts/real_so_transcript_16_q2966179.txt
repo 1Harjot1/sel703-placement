@@ -1,0 +1,26 @@
+Source URL: https://stackoverflow.com/questions/2966179/wpf-textbox-focus
+Source Platform: Stack Overflow
+Question ID: 2966179
+Title: WPF TextBox Focus
+================================================================================
+
+I am setting focus on a Textbox like this:
+
+
+
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+```
+
+
+
+However, when the page load, although the Textbox visually appears to have focus, the cursor is static and I have to manually either click on the Textbox or tab to it in order to start typing. I'm not sure what I'm doing wrong but I've tried every setting, inclduing setting it in the code to get it working. Any assistance would be greatly appreciated.

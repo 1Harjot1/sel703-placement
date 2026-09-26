@@ -1,0 +1,192 @@
+Source URL: https://stackoverflow.com/questions/79848144/how-to-prevent-auto-scroll-during-streaming-when-user-manually-scrolls-up
+Source Platform: Stack Overflow
+Question ID: 79848144
+Title: How to Prevent Auto-Scroll During Streaming When User Manually Scrolls Up?
+================================================================================
+
+I'm building a chat interface where AI responses are streamed chunk by chunk (similar to ChatGPT). The current implementation automatically scrolls to the bottom as each chunk arrives, which works well. However, if a user tries to scroll up to read previous content while the stream is still coming in, the auto-scroll forces them back to the bottom, making it impossible to read previous messages.
+
+
+What I need is, when the user manually scrolls up during streaming, I want to pause the auto-scroll feature. When they scroll back to the bottom, auto-scroll should resume.
+
+
+Here's my current streaming and scroll management code:
+
+
+```
+// Streaming function that processes chunks
+function sendStreamingRequest(question, country, conversationHistory) {
+ console.log('🚀 Starting STREAMING request...');
+ 
+ // Create AbortController for this request
+ currentController = new AbortController();
+ 
+ // Add assistant message placeholder to chat
+ const chatMessages = document.getElementById('chat-messages');
+ const assistantMessageDiv = document.createElement('div');
+ assistantMessageDiv.className = 'message assistant';
+ assistantMessageDiv.innerHTML = `
+ 
+ 
+ 
+ `;
+ chatMessages.appendChild(assistantMessageDiv);
+ 
+ // Scroll to bottom initially
+ setTimeout(() => {
+ chatMessages.scrollTop = chatMessages.scrollHeight;
+ document.getElementById('chat-container').scrollTop = document.getElementById('chat-container').scrollHeight;
+ }, 100);
+ 
+ fetch(STREAMING_ENDPOINT, {
+ method: 'POST',
+ headers: {
+ 'Content-Type': 'application/json',
+ 'X-WP-Nonce': chat_ajax.nonce
+ },
+ body: JSON.stringify(requestBody),
+ signal: currentController.signal
+ })
+ .then(response => {
+ const reader = response.body.getReader();
+ const decoder = new TextDecoder();
+ let accumulatedText = '';
+ let chunkCount = 0;
+ 
+ function readStream() {
+ return reader.read().then(({ done, value }) => {
+ if (done) {
+ console.log('Streaming complete!');
+ isStreaming = false;
+ $('#chatgpt-submit, #chatgpt-submit-bottom').removeClass('loading').prop('disabled', false);
+ return;
+ }
+ 
+ chunkCount++;
+ let chunk = decoder.decode(value);
+ accumulatedText += chunk;
+
+ // Update message content
+ const formattedText = formatResponseForDisplay(accumulatedText);
+ const sanitizedText = DOMPurify.sanitize(formattedText, {
+ ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'code', 'pre', 'a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span', 'button'],
+ ALLOWED_ATTR: ['href', 'target', 'class', 'data-language', 'title'],
+ ALLOW_DATA_ATTR: true
+ });
+ assistantMessageDiv.querySelector('.message-content').innerHTML = sanitizedText + ' ';
+ 
+ // PROBLEM: This forces scroll on every chunk
+ requestAnimationFrame(() => {
+ // Scroll the chat messages container to absolute bottom
+ chatMessages.scrollTop = chatMessages.scrollHeight;
+ 
+ // Scroll the main chat container to absolute bottom
+ const chatContainer = document.getElementById('chat-container');
+ chatContainer.scrollTop = chatContainer.scrollHeight;
+ 
+ // Scroll to the streaming cursor
+ const cursor = assistantMessageDiv.querySelector('.streaming-cursor');
+ if (cursor) {
+ cursor.scrollIntoView({ behavior: 'instant', block: 'nearest' });
+ }
+ 
+ // Force scroll the page to show the bottom input if it exists
+ const bottomInput = document.getElementById('input-container-bottom');
+ if (bottomInput && bottomInput.style.display !== 'none') {
+ window.scrollTo({
+ top: document.documentElement.scrollHeight,
+ behavior: 'instant'
+ });
+ }
+ });
+ 
+ return readStream();
+ });
+ }
+ 
+ return readStream();
+ })
+ .catch(error => {
+ console.error('Streaming error occurred:', error);
+ });
+}
+
+```
+
+
+HTML/CSS Structure:
+
+
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+#chat-container {
+ width: 100%;
+ max-width: 600px;
+ margin-top: 30px;
+ overflow-y: auto;
+ flex: 1;
+ padding-bottom: 20px; 
+ min-height: 0; 
+}
+
+#chat-messages {
+ display: flex;
+ flex-direction: column;
+ gap: 16px;
+}
+
+.message {
+ padding: 12px 16px;
+ border-radius: 18px;
+ line-height: 1.4;
+ position: relative;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 600px) {
+ #chat-container {
+ flex: 1;
+ min-height: 0;
+ margin-bottom: 0;
+ padding-bottom: 10px;
+ overflow-y: auto;
+ -webkit-overflow-scrolling: touch;
+ }
+}
+ 
+
+```
+
+
+ The Problem : The `requestAnimationFrame` block forces scrolling on every chunk received. When a user manually scrolls up to read previous content, they get immediately pulled back down.
+
+
+ What I'm looking for :
+
+ 
+ 
+A way to detect when the user has manually scrolled away from the bottom
+
+ 
+ 
+A clean way to pause auto-scroll when they do
+
+ 
+ 
+Resume auto-scroll when they return to the bottom
+
+ 
+ 
+Handle both desktop and mobile scrolling scenarios

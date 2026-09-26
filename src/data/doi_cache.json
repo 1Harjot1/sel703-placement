@@ -1,0 +1,163 @@
+{
+  "10.1017/s0140525x01003922": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "The magical number 4 in short-term memory: A reconsideration of mental storage capacity",
+    "error": null
+  },
+  "10.1126/science.1736359": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Working Memory",
+    "error": null
+  },
+  "10.1037/h0043158": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "The magical number seven, plus or minus two: Some limits on our capacity for processing information.",
+    "error": null
+  },
+  "10.1016/j.cpr.2004.11.001": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "The impact of reinforcement contingencies on AD/HD: A review and theoretical appraisal",
+    "error": null
+  },
+  "10.1016/s1364-6613(03)00028-7": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Task switching",
+    "error": null
+  },
+  "10.1007/s12402-012-0100-8": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Understanding deficient emotional self-regulation in adults with attention deficit hyperactivity disorder: a controlled study",
+    "error": null
+  },
+  "10.1037/0022-3514.70.6.1327": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Implications of rejection sensitivity for intimate relationships.",
+    "error": null
+  },
+  "10.1037/0033-2909.121.1.65": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Behavioral inhibition, sustained attention, and executive functions: Constructing a unifying theory of ADHD.",
+    "error": null
+  },
+  "10.1111/j.1469-7610.2009.02081.x": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Editorial: Mood irritability \u2013 do we need to refine the diagnostic validity of oppositional defiant disorder and paediatric bipolar disorder?",
+    "error": null
+  },
+  "10.1016/j.cpr.2016.06.007": {
+    "resolved": false,
+    "identity_matched": false,
+    "status_code": null,
+    "fetched_title": null,
+    "error": "HTTP Error 404: Not Found"
+  },
+  "10.1111/j.1467-8624.2004.00724.x": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Socioeconomic Status and Health in Adolescents: The Role of Stress Interpretations",
+    "error": null
+  },
+  "10.1016/j.janxdis.2016.02.007": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Into the unknown: A review and synthesis of contemporary models involving uncertainty",
+    "error": null
+  },
+  "10.1176/appi.ajp.2013.13070966": {
+    "resolved": true,
+    "identity_matched": false,
+    "status_code": 200,
+    "fetched_title": "Emotion Dysregulation in Attention Deficit Hyperactivity Disorder",
+    "error": "Title mismatch (overlap 0.17). DOI title: 'Emotion Dysregulation in Attention Deficit Hyperactivity Disorder' vs BibTeX title: 'emotion regulation in adhd: neural and behavioral mechanisms'"
+  },
+  "10.3102/0013189x018001032": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Situated Cognition and the Culture of Learning",
+    "error": null
+  },
+  "10.1037/0033-2909.133.1.65": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "The nature of procrastination: A meta-analytic and theoretical review of quintessential self-regulatory failure.",
+    "error": null
+  },
+  "10.1146/annurev-psych-113011-143750": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Executive Functions",
+    "error": null
+  },
+  "10.1523/jneurosci.5587-06.2007": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Dissociable Intrinsic Connectivity Networks for Salience Processing and Executive Control",
+    "error": null
+  },
+  "10.1207/s15516709cog1402_1": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Finding Structure in Time",
+    "error": null
+  },
+  "10.1037/1089-2680.2.3.271": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "The Emerging Field of Emotion Regulation: An Integrative Review",
+    "error": null
+  },
+  "10.1037/0022-3514.85.2.348": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Individual differences in two emotion regulation processes: Implications for affect, relationships, and well-being.",
+    "error": null
+  },
+  "10.1037/0033-295x.110.1.145": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Core affect and the psychological construction of emotion.",
+    "error": null
+  },
+  "10.1126/science.1100907": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Separate Neural Systems Value Immediate and Delayed Monetary Rewards",
+    "error": null
+  },
+  "10.3758/bf03210971": {
+    "resolved": true,
+    "identity_matched": true,
+    "status_code": 200,
+    "fetched_title": "Environmental invariants in the representation of motion: Implied dynamics and representational momentum, gravity, friction, and centripetal force",
+    "error": null
+  }
+}

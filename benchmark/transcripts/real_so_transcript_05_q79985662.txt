@@ -1,0 +1,189 @@
+Source URL: https://stackoverflow.com/questions/79985662/treedatagrid-with-xaml-defined-columns-cant-resolve-view-model-properties
+Source Platform: Stack Overflow
+Question ID: 79985662
+Title: TreeDataGrid with XAML-defined columns can't resolve view model properties
+================================================================================
+
+I have an Avalonia 12 app using MVVM Community Toolkit where I'm trying to open a dialog that contains a `TreeDataGrid` displaying shape selections (an abstraction of my business problem) in tabular form. Each row provides two checkboxes and a drop-down for the properties of the view model object for each item in a collection in the viewmodel that is the dialog's `DataContext`.
+
+
+From `Enums.cs`:
+
+
+```
+public enum ShapeType
+{
+ Circle,
+ Triangle,
+ Square
+}
+
+```
+
+
+`ShapeOption.cs`:
+
+
+```
+using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace MyProject.ViewModels.DDLOptions;
+
+public class ShapeOption
+{
+ [ObservableProperty]
+ private string _optText { get; set; } = string.Empty; // Gets translated into multiple languages, possibly during lifetime
+
+ public ShapeType OptShape { get; set; }
+}
+
+```
+
+
+`ShDrawnVM.cs`:
+
+
+```
+using CommunityToolkit.Mvvm.ComponentModel;
+
+namespace MyProject.ViewModels;
+
+public partial class ShDrawnVM : ObservableObject
+{
+ [ObservableProperty]
+ private bool _isFilled;
+
+ [ObservableProperty]
+ private bool _isRoundedCorners;
+
+ [ObservableProperty]
+ private ShapeType _shape;
+}
+
+```
+
+
+`ShapesDrawnVM.cs`:
+
+
+```
+using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
+
+namespace MyProject.ViewModels;
+
+public partial class ShapesDrawnVM : ObservableObject
+{
+ public ObservableCollection DrawingShapes { get; } = new();
+
+ public ObservableCollection ShapeOptions { get; } = new();
+
+ public ShapesDrawnVM()
+ {
+ ShapeOptions.Add(new ShapeOption
+ {
+ OptText = "Circle",
+ OptShape = ShapeType.Circle
+ });
+
+ ShapeOptions.Add(new ShapeOption
+ {
+ OptText = "Triangle",
+ OptShape = ShapeType.Triangle
+ });
+
+ ShapeOptions.Add(new ShapeOption
+ {
+ OptText = "Square",
+ OptShape = ShapeType.Square
+ });
+
+ DrawingShapes.Add(new ShDrawnVM
+ {
+ IsFilled = true,
+ Shape = ShapeType.Circle
+ });
+
+ DrawingShapes.Add(new ShDrawnVM
+ {
+ IsRoundedCorners = true,
+ Shape = ShapeType.Square
+ });
+ }
+}
+
+```
+
+
+`ShapesDrawn.axaml`:
+
+
+```
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+```
+
+
+The code is pretty much the response to a Copilot prompt:
+
+ 
+
+For Avalonia 12 using MVVM Community Toolkit, write a program that implements a `TreeDataGrid`. There is an enum called `ShapeType` with members `Circle`, `Square`, and `Triangle`. There is a class called `ShapeOption` that includes a property named `OptText` of type string and a property named `OptShape` of type `ShapeType`. There is a view model class named `ShDrawnVM` that includes the boolean properties `IsFilled` and `IsRoundedCorners`, plus a `ShapeType` property named `Shape`. There is a view model class named `ShapesDrawnVM` that includes a property named `DrawingShapes` of type `ObservableCollection ` and a property named `ShapeOptions` of type `ObservableCollection `. There is a `ShapesDrawn` window that has a `ShapesDrawnVM` as its `DataContext` and `ShapesDrawnVM.DrawingShapes` is the `ItemsSource` of the `TreeDataGrid`. Each row in the `TreeDataGrid` has a checkbox each for `ShDrawnVM.IsFilled` and `ShDrawnVM.IsRoundedCorners` and a combobox for selection of `ShDrawnVM.Shape`. The `ShapesDrawnVM.ShapeOptions` is the `ItemsSource` for the combobox, which displays the `ShapeOption.OptText` and has `ShapeOption.OptShape` bound to `SelectedValue`.
+
+ 
+
+This produced an example that had `ShapesDrawnVM` create a `FlatTreeDataGridSource` and had one line of XAML for the `TreeDataGrid` after a `Resources` tag that defined a single `DataTemplate` that mentioned only `ShDrawnVM.Shape`, not its other `bool` properties. I prefer that the columns be defined in XAML so I did not implement it, instead immediately following up with:
+
+ 
+
+How to define the TreeDataGrid columns in XAML?
+
+ 
+
+I also added these lines in the `Window` tag:
+
+
+```
+ xmlns:vm="clr-namespace:MyProject.ViewModels;assembly=MyProject"
+ xmlns:views="clr-namespace:MyProject.Views"
+ x:Class="MyProject.Views.ShapesDrawn"
+ x:DataType="vm:ShapesDrawnVM"
+
+```
+
+
+Implementing and attempting to build this produces the following errors:
+
+ 
+
+Unable to resolve property or method of name 'ShapeOptions' on type 'System.Object'. (points to ComboBox ItemsSource) 
+
+ 
+ 
+
+Unable to resolve property or method of name 'Shape' on type 'XamlX.TypeSystem.XamlPseudoType'. (points to ComboBox SelectedValue) 
+
+ 
+ 
+
+Unable to resolve property or method of name 'IsRoundedCorners' on type 'MyProject.ViewModels.ShapesDrawnVM'. (points to TreeDataGridCheckBoxColumn) 
+
+ 
+
+I tried adding `x:DataType="vm:ShDrawnVM"` to each column's `TreeDataGridCheckBoxColumn` or `DataTemplate` tag, but this still left the `ShapeOptions` error.
+
+
+Any help appreciated, thanks.

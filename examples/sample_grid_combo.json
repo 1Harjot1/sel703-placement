@@ -1,0 +1,18 @@
+{
+  "dysfunction": {
+    "name": "Working Memory Overload",
+    "mechanism_text": "Working memory capacity limits the amount of information that can be held active and manipulated simultaneously. When complex, multi-element information exceeds ~4 chunks, working memory is overloaded, resulting in degraded task performance, disorientation, and cognitive fatigue."
+  },
+  "behavior": {
+    "name": "Non-deterministic Output",
+    "description": "The assistant provides structurally inconsistent or contradictory outputs across repeated invocations of the same or similar prompts."
+  },
+  "sdlc": {
+    "task_name": "Requirements analysis and evaluation",
+    "full_name": "Requirements analysis and evaluation \u2014 analyzing requirements for clarity, completeness, and conflicts"
+  },
+  "value": {
+    "name": "Self-Direction\u2014Thought",
+    "definition": "Independent thought and action \u2014 choosing, creating, exploring"
+  }
+}

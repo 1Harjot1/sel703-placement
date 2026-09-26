@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/cursor/comments/1n4vncm/ai_was_a_great_tool_until_my_clients_discovered_it/
+Subreddit: r/cursor
+Title: AI was a great tool, until my clients discovered it.
+================================================================================
+
+That moment when your client says: "what's the problem?" and then proceeds to describe a feature so convoluted it must have come from an AI hallucination. "just add a thing that calculates the balance, sends it to people based on their map location, staggers it randomly, and syncs with traffic updates. i even have a demo i wrote with Cursor." Sure you do, man. Sure you do. send help. or whiskey. submitted by /u/Striking-Cod3930 [link] [comments]

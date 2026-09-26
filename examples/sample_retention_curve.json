@@ -1,0 +1,47 @@
+{
+  "evaluation_date": "2026-08-31",
+  "final_dataset_sent_to_davoud": {
+    "file": "final_180.csv",
+    "total_scenarios": 180,
+    "deterministic_pass_legacy": 178,
+    "deterministic_pass_remediated": 180,
+    "relevance_distribution": {
+      "Partial": 104,
+      "Supported": 67,
+      "Doubtful": 9
+    },
+    "plausibility_distribution": {
+      "Likely": 180
+    },
+    "specificity_distribution": {
+      "Specific": 165,
+      "Detailed": 15
+    }
+  },
+  "upstream_1000_generation_pool": {
+    "file": "full_evaluated_scenarios_960.json",
+    "total_generated": 1000,
+    "deterministic_pass": 990,
+    "deterministic_pass_pct": 99.0,
+    "relevance_distribution": {
+      "Partial": 609,
+      "Supported": 295,
+      "Doubtful": 90,
+      "Unfounded": 6
+    },
+    "plausibility_distribution": {
+      "Likely": 989,
+      "Possible": 9,
+      "Certain": 2
+    },
+    "specificity_distribution": {
+      "Specific": 907,
+      "Detailed": 86,
+      "General": 7
+    },
+    "strict_high_quality_retained": 291,
+    "strict_high_quality_pct": 29.1,
+    "inclusive_candidates_retained": 892,
+    "inclusive_candidates_pct": 89.2
+  }
+}

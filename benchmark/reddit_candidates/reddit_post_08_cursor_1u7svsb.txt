@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/cursor/comments/1u7svsb/why_the_cursor_acquisition_should_concern_every/
+Subreddit: r/cursor
+Title: Why the Cursor Acquisition Should Concern Every Software Developer
+================================================================================
+
+I’ve been a Cursor user for a long time and today’s acquisition news genuinely worries me. Not because I think anything bad will happen tomorrow, but because Cursor sits closer to proprietary source code than almost any other developer tool. The value of Cursor depends on trust. Developers let it see architecture decisions, product roadmaps, unreleased features, and sometimes code that represents years of company investment and potential patents. When ownership shifts to someone with interests spanning AI, social media, aerospace, robotics, surveillance, news APIs, and who might have poached the PII of every person in the US, it’s reasonable to ask what governance and safeguards will exist. Am I overreacting, or does anyone else feel that a coding assistant requires a different level of trust than most software acquisitions? submitted by /u/kommentz [link] [comments]

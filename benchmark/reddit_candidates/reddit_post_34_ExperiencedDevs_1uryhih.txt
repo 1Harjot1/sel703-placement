@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/ExperiencedDevs/comments/1uryhih/juniors_are_valuable_and_not_hiring_them_is_a/
+Subreddit: r/ExperiencedDevs
+Title: Juniors are valuable and not hiring them is a mistake
+================================================================================
+
+yes, it takes more work to write reasonably scoped tickets for a junior and then review their code than it does to just write it yourself or slopmaxx it with claude. that has inherent value, though. having impressionable juniors around forces your team to keep their shit together, keep standards high, keep the DX and documentation good. richard feynman, in addition to being a samba percussionist, lockpicker, and nobel-prize-winning physicist, had a lot to say about education and his technique for learning things was to teach them to someone else using simple language. having to mentor juniors has forced me to grow more than anything else i've done at my job. orgs which get rid of co-ops/juniors are quietly* harming themselves in a way that can't be immediately measured, but which has long-term negative consequences. agree, disagree, any interesting experiences mentoring a junior where you learned something from it? \ yes, ai has turned my brain to slime, thank you for noticing, but i wrote this myself) submitted by /u/computer_porblem [link] [comments]

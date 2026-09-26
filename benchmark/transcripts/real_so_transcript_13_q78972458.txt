@@ -1,0 +1,131 @@
+Source URL: https://stackoverflow.com/questions/78972458/trouble-with-draggesture-and-snapping-3d-model-to-surface-in-visionos-using-arki
+Source Platform: Stack Overflow
+Question ID: 78972458
+Title: Trouble with DragGesture and Snapping 3D Model to Surface in VisionOS using ARKit
+================================================================================
+
+I’ve been working on an app for Vision Pro for about a month with decent progress so far. The goal is to have an MVP ready in about 10 days (I know, tight deadline). However, I’m currently struggling with enabling the user to move a 3D model in `ImmersiveSpace` using `DragGesture`, and then snapping it to the nearest surface (wall, floor, ceiling, or table). While the code compiles and runs, the model doesn’t appear, and both the dragging and snapping functionalities fail to work.
+
+
+For context, I’m relatively new to Swift and VisionOS, and I’ve been relying on Cursor (AI coding companion) for assistance. Apologies in advance if the code isn’t perfectly structured.
+
+
+Below is the code for ImmersiveView.swift. I’d appreciate any help in spotting the issue.
+
+ `import SwiftUI
+import RealityKit
+import RealityKitContent
+
+struct ImmersiveView: View {
+ @Environment(AppModel.self) private var appModel
+ @State private var anchor: AnchorEntity?
+ @State private var draggedEntity: Entity?
+ @State private var initialEntityPosition: SIMD3 ?
+
+ var body: some View {
+ RealityView { content in
+ print("ImmersiveView: Setting up RealityView content")
+ let newAnchor = AnchorEntity()
+ content.add(newAnchor)
+ anchor = newAnchor
+ 
+ // Load the toy car model
+ Task {
+ await loadToyCarModel()
+ }
+ } update: { content in
+ if let carEntity = appModel.carEntity {
+ carEntity.position = appModel.carPosition
+ }
+ }
+ .gesture(dragGesture)
+ .task {
+ await startCarPositionUpdateTask()
+ }
+ }
+ 
+ private func loadToyCarModel() async {
+ do {
+ guard let toyCarEntity = try? await Entity(named: "toyCar", in: realityKitContentBundle) else {
+ print("ImmersiveView: Failed to load toyCar entity")
+ return
+ }
+ 
+ print("ImmersiveView: Successfully loaded toyCar entity")
+ 
+ let toyCarModel: ModelEntity
+ if let model = toyCarEntity as? ModelEntity {
+ toyCarModel = model
+ print("ImmersiveView: toyCar entity is already a ModelEntity")
+ } else if let firstChild = toyCarEntity.children.first as? ModelEntity {
+ toyCarModel = firstChild
+ print("ImmersiveView: Extracted ModelEntity from toyCar's first child")
+ } else {
+ print("ImmersiveView: Unable to find a suitable ModelEntity in the loaded toyCar entity")
+ return
+ }
+ 
+ // Configure the car entity
+ toyCarModel.generateCollisionShapes(recursive: true)
+ toyCarModel.components[CollisionComponent.self] = CollisionComponent(
+ shapes: toyCarModel.collision?.shapes ?? [],
+ mode: .trigger,
+ filter: .sensor
+ )
+ 
+ toyCarModel.position = [0, 0, -2]
+ toyCarModel.scale = [1, 1, 1] // Adjust scale if needed
+ 
+ // Add the car to the anchor
+ anchor?.addChild(toyCarModel)
+ appModel.carEntity = toyCarModel
+ 
+ print("ImmersiveView: Added toy car model to content")
+ } catch {
+ print("ImmersiveView: Error loading toy car model: \(error)")
+ }
+ }
+ 
+ private func startCarPositionUpdateTask() async {
+ while true {
+ appModel.updateCarPosition()
+ try? await Task.sleep(for: .milliseconds(100))
+ }
+ }
+ 
+ private var dragGesture: some Gesture {
+ DragGesture()
+ .targetedToAnyEntity()
+ .onChanged { value in
+ print("ImmersiveView: Drag gesture detected - onChanged")
+ guard let carEntity = appModel.carEntity,
+ value.entity == carEntity else { return }
+ 
+ if draggedEntity == nil {
+ draggedEntity = carEntity
+ initialEntityPosition = carEntity.position
+ }
+ 
+ guard let initialPosition = initialEntityPosition else { return }
+ 
+ let translation = value.translation3D
+ let newPosition = initialPosition + SIMD3 (translation)
+ 
+ appModel.carPosition = newPosition
+ print("ImmersiveView: Dragging car. New position: \(newPosition)")
+ }
+ .onEnded { _ in
+ print("ImmersiveView: Drag gesture detected - onEnded")
+ draggedEntity = nil
+ initialEntityPosition = nil
+ }
+ }
+}
+
+#Preview(immersionStyle: .mixed) {
+ ImmersiveView()
+ .environment(AppModel())
+}
+
+
+```

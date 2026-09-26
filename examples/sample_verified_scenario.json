@@ -1,0 +1,20 @@
+{
+  "sid": "SCN-0041",
+  "task_name": "Requirements analysis and evaluation",
+  "dysfunction": "Working Memory Overload",
+  "behavior": "Non-deterministic Output",
+  "concern": "A developer sorting requirement statements asked the coding assistant for classification help, but identical prompts produced different category schemes each time. Because they rely on a small active mental buffer, comparing all versions displaced the original rules, making the work feel unsafe and forcing a restart.",
+  "logic": "I was sorting a backlog of raw requirement statements into functional, quality, access-control, and domain-specific groups before a planning review. I asked the coding assistant to classify the same ten items and explain the boundary rules so I could apply them consistently. When I ran the identical request again, it changed several labels, renamed two groups, and gave a different rule for the same access-control item. I kept trying to hold the first answer, the second answer, the team rubric, and the disputed examples in mind, then lost track of which rule I trusted and delayed the review notes. This fits research showing that accuracy and speed drop when too many separate items must be kept active at once. A developer without this cognitive sensitivity would likely compare the two outputs, pick the rule that matches the team rubric, and continue with a short correction note. Here, more than three changing elements compete for a small active mental buffer, so earlier rules and examples are displaced before they can be checked. The repeated inconsistent answers turn a linear classification task into a multi-version reconciliation task, breaking the workflow at the point where stable criteria are needed.",
+  "impact": "The developer cannot stabilize the category rules long enough to classify the requirements, so the review packet is delayed and extra time is spent rebuilding a trusted decision table from scratch.",
+  "intervention": "The tool should pin a single classification rubric for the session and show any later change as a highlighted difference that requires explicit approval before replacing prior guidance.",
+  "value": "Self-Direction",
+  "value_item": "Self-direction-thought",
+  "citation_doi": "10.1017/s0140525x01003922",
+  "url": "https://doi.org/10.1017/s0140525x01003922",
+  "quote_id": "s68",
+  "evidence": "This results in markedly less accurate and/or slower performance when more than four items must be held than when fewer items must be held (e.g., in enumeration tasks such as that dis- cussed by Mandler & Shebo 1982).",
+  "relevance": "Supported",
+  "plausibility": "Likely",
+  "specificity": "Specific",
+  "deterministic_all_pass": true
+}

@@ -1,0 +1,773 @@
+Source URL: https://stackoverflow.com/questions/79985939/idispatchinvoke-crashes-server-side-com-framework-for-basic-iaccessible-implem
+Source Platform: Stack Overflow
+Question ID: 79985939
+Title: IDispatch::Invoke crashes server-side COM framework for basic IAccessible implementation for child count 1+ for IAccessible::get_accChildCount
+================================================================================
+
+I'm trying to implement basic accessibility support for a custom GUI (server-side) - all GUI controls are custom/non-MS - via `IAccessible`. However, my COM framework keeps crashing.  Even pure skeletal definitions crash.
+
+
+The crash appears to be centered around `IDispatch::Invoke()`. Whenever `IAccessible::get_accChildCount()` is called and returns 1 or more for the child count, `IDispatch::Invoke()` is called thereafter and crashes the app.  Even a bare "non-implemented" version of `IDispatch` crashes at `Invoke()`.  The value for `iid` for `Invoke()` is also not `IID_NULL`.
+
+
+I'm using "Accessibility Insights for Windows" and "Visual UIA Verify" as client apps to probe my app/test the COM framework.
+
+
+I code in Borland Delphi 3 Professional (32-bit) using Object Pascal, and wish to implement the COM framework as pure binary vTables and standard COM functions using `stdcall`.
+
+
+`OleVariant` seems unstable in Delphi 3. I have swapped it out for `tcomvar` (16 bytes for 32-bit and 24 bytes for 64-bit).  I have tried various different function parameter definitions, higher-level object/interface definitions, even imported `IAccessible` using the "Import Type Library" function in Delphi 3, but all to no success.  I even tried the COM framework in Borland Delphi 7 with no change, it still crashes.
+
+
+I am new to COM, but understand the basic design principal governing its function.
+
+
+However, everything I have tried to date has failed to fix the `IDispatch::Invoke()` error.  I suspect it is something simple I have overlooked.  But trying to get precise, accurate, and detailed information at this low level in Object Pascal from the Internet has been a real challenge.
+
+
+I have tried Copilot and Google's AI extensively over days. Both are helpful, but lack the technical background and accuracy to get right down to the nitty gritty detail where it counts.
+
+
+I could simply deny the request for the `IID_IDispatch` interface in `QueryInterface()`, but I suspect it is required for proper/broad client app support, e.g. scripting engines etc, and also, I'd like to understand what the error actually is, and what I have done wrong, so I can fix it.
+
+
+I've included a stripped down demo version of the COM framework hooked to a standard `TForm` for the `WM_GETOBJ` message for testing purposes only.
+
+
+Any help is much appreciated.
+
+ `unit com1;
+
+interface
+
+uses
+ Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs, com2,
+ ExtCtrls, StdCtrls;
+
+type
+ TForm1 = class(TForm)
+ private
+ procedure wmgetobj(var Message: TMessage); message wm_getobject;
+ public
+
+ end;
+
+var
+ Form1: TForm1;
+
+implementation
+
+{$R *.DFM}
+
+procedure TForm1.wmgetobj(var Message: TMessage);
+var
+ m :twinmessage;
+begin
+ if not form1.showing then exit;
+
+ m.r :=0;
+ m.l :=message.lparam;
+ m.w :=message.wparam;
+ m.m :=message.msg;
+
+ if auto__wmgetobject(nil,m) then message.result:=m.r;
+end;
+
+end.
+
+```
+
+ `unit com2;
+
+interface
+
+{$ifdef WIN64}{$define 64bit}{$endif}
+
+uses sysutils;
+
+const
+ VT_EMPTY =0;
+ VT_NULL =1;
+ VT_I4 =3;
+ VT_DISPATCH =9;
+ VT_BYREF =$4000;
+ min32 =-2147483647-1;
+ max32 = 2147483647;
+ maxcore =999;//gui
+ WM_GETOBJECT =61;
+ OBJID_WINDOW =0;
+ OBJID_CLIENT =-4;
+ S_OK =$00000000;
+ S_FALSE =$00000001;
+ E_FAIL =$80004005;//10apr2026
+ E_NOINTERFACE =$80004002;
+ E_INVALIDARG =$80070057;
+ E_NOTIMPL =$80004001;//17jul2026
+ DISP_E_BADINDEX =$8002000B;
+ DISP_E_MEMBERNOTFOUND =$80020003;
+ DISP_E_UNKNOWNNAME =$80020006;
+ DISP_E_UNKNOWNINTERFACE =-2147352575;
+ iid_null :tguid='{00000000-0000-0000-0000-000000000000}';
+ iid_unknown :tguid='{00000000-0000-0000-C000-000000000046}';//IUnknown
+ iid_dispatch :tguid='{00020404-0000-0000-C000-000000000046}';//automation/scripting interface (VB,office, etc)
+ iid_accessible :tguid='{618736E0-3C3D-11CF-810C-00AA00389B71}';//IAccessible
+ ROLE_SYSTEM_APPLICATION =14;
+ ROLE_SYSTEM_OUTLINE =35;
+ ROLE_SYSTEM_PUSHBUTTON =43;
+ DISPATCH_METHOD =1;
+ DISPATCH_PROPERTYGET =2;
+ DISPATCH_PROPERTYPUT =4;
+ DISPATCH_PROPERTYPUTREF =8;
+
+type
+ longint32 =longint;
+ longint64 =comp;
+ {$ifdef 64bit}
+ iauto =longint64;
+ hauto =longint64;
+ {$else}
+ iauto =longint32;
+ hauto =longint32;
+ {$endif}
+ pauto =pointer;
+ bstr =pauto;
+ uint32 =longint32;//32 bit only
+ pwinmessage =^twinmessage;
+ twinmessage =record//09jan2025
+
+ m :iauto;
+ w :iauto;
+ l :iauto;
+ r :iauto;
+
+ end;
+
+ pint64 =^tint64;
+ tint64 =packed record
+ case longint of
+
+ 0:(val:longint64);
+ 1:(cmp:comp);
+ 2:(cur:currency);
+ 3:(dbl:double);
+ 4:(bytes:array[0..7] of byte);
+ 5:(wrds:array[0..3] of word);
+ 6:(ints:array[0..1] of longint);
+ 7:(bits:set of 0..63);
+ 8:(datetime:tdatetime);
+
+ end;
+
+ pcomvar =^tcomvar;
+ tcomvar =packed record
+
+ vt :word;
+ wreserved1 :word;
+ wreserved2 :word;
+ wreserved3 :word;//8 bytes
+
+ case longint32 of
+ vt_i4 :(i32:longint32);
+ vt_dispatch :(dispatch:pauto);
+
+ vt_byref or vt_i4 :(pi32:^longint32);
+ vt_byref or vt_dispatch :(pdispatch:^pauto);
+
+ max32 :(a:pauto;b:pauto);//8 bytes (32-bit) or 16 bytes (64-bit)
+
+ end;
+
+ tbasiccontrol =tobject;//sample GUI control
+
+ pautoslot =^tautoslot;
+ tautoslot =record
+
+ vtable :pauto;
+ flist :array[0..28] of pauto;
+ cok :boolean;
+ c :tbasiccontrol;
+ slot :longint32;
+
+ end;
+
+ pautoinfo =^tautoinfo;
+ tautoinfo =record
+
+ timer1000 :longint64;
+ active :boolean;
+ lasttime :longint64;
+ slotCount :longint32;//number of COM slots in use
+ mcount :longint32;//message count -> "wmgetobject" requests
+ qcount :longint32;//call count for "queryInterface"
+ ucount :longint32;//call count for IUnknown
+ dcount :longint32;//call count for IDispatch
+ acount :longint32;//call count for IAccessible
+ temp :longint32;
+
+ end;
+
+var
+ auto_list :array[-1..maxcore] of tautoslot;//18jul2026
+ auto_info :tautoinfo;
+
+//automation procs
+procedure auto__init;
+function auto__connect(const xcontrol:tbasiccontrol):longint32;
+procedure auto__connectBySlot(const xcontrol:tbasiccontrol;const xslot:longint32);
+procedure auto__disconnect(const xcontrol:tbasiccontrol;var xcontrolSlot:longint32);
+function auto__root(const xslot:longint32):pautoslot;
+function auto__wmgetobject(const g:tobject;var m:twinmessage):boolean;
+
+//support procs
+function rollid32(var x:longint32):longint32;
+function com__guidMatch(const s,d:tguid):boolean;
+function com__makebstr(const x:string):pauto;
+function bolstr(const x:boolean):string;
+function low__cls(const x:pointer;const xsize:longint32):boolean;
+procedure showbasic(const x:string);
+function win____MessageBox(hWnd:hauto; lpText, lpCaption: PChar; uType: uint32): longint32; stdcall; external 'user32.dll' name 'MessageBoxA';
+function win____LresultFromObject(const refiid:TGUID;wparam:iauto;punk:IUnknown):iauto;stdcall; external 'oleacc.dll' name 'LresultFromObject';
+function win____DefWindowProc(hWnd: hauto; Msg: iauto; wParam: iauto; lParam: iauto): iauto; stdcall; external 'user32.dll' name 'DefWindowProcA';
+function win____CoInitializeEx(pvReserved: pauto; coInit: Longint): hauto; stdcall; external 'ole32.dll' name 'CoInitializeEx';
+function win____CoInitialize(pvReserved: pauto): hauto; stdcall; external 'ole32.dll' name 'CoInitialize';
+function win____SysAllocString(x:pauto):pauto; stdcall; external 'oleaut32.dll' name 'SysAllocString';
+
+//comvar procs
+function comvar__ok(var x:tcomvar):boolean;
+function comvar__vt(var x:tcomvar):longint32;
+function comvar__i32OK(var x:tcomvar):boolean;
+function comvar__i32(var x:tcomvar):longint32;
+function comvar__i32b(var x:tcomvar;const xdefVal:longint32):longint32;
+function comvar__dispatchOK(var x:tcomvar):boolean;
+function comvar__dispatch(var x:tcomvar):pauto;
+procedure comvar__init(var x:tcomvar);
+procedure comvar__setnull(var x:tcomvar);
+procedure comvar__setempty(var x:tcomvar);
+procedure comvar__seti32(var x:tcomvar;const v:longint32);
+procedure comvar__setDispatch(var x:tcomvar;const v:pauto);
+
+implementation
+
+uses forms, com1;
+
+//automation procs
+function auto__iunknown__addref(self:pauto):longint32;stdcall;
+begin
+ result :=2;
+end;
+
+function auto__iunknown__queryinterface(self:pauto;const iid:tguid;out obj):longint32;stdcall;
+begin
+ rollid32( auto_info.ucount );
+
+ if com__guidMatch( iid ,iid_unknown ) or
+ com__guidMatch( iid ,iid_dispatch ) or
+ com__guidMatch( iid ,iid_accessible ) then
+
+ begin
+ rollid32( auto_info.qcount );
+
+ result :=s_ok;
+ pauto(obj) :=self;
+ end
+
+ else begin
+ result :=e_nointerface;
+ pauto(obj) :=nil;
+ end;
+
+end;
+
+function auto__iunknown__release(self:pauto):longint32;stdcall;
+begin
+ result :=1;
+end;
+
+function auto__idispatch__GetTypeInfoCount(self:pauto;out count:longint32):longint32;stdcall;
+begin
+ rollid32(auto_info.dcount);
+ result :=E_NOTIMPL;
+ count:=0;
+end;
+
+function auto__idispatch__GetTypeInfo(self:pauto;index,localeid:longint32;out typeinfo):longint32;stdcall;
+begin
+ rollid32(auto_info.dcount);
+ result :=E_NOTIMPL;
+ pauto(typeinfo):=nil;
+end;
+
+function auto__idispatch__GetIDsOfNames(self:pauto;const IID:TGUID;names:pauto;nameCount,localeid:longint32;dispids:pauto):longint32;stdcall;
+begin
+ rollid32(auto_info.dcount);
+ result :=E_NOTIMPL;
+end;
+
+function auto__idispatch__Invoke(self:pauto;xdispid:longint32;const iid:tguid;localeid:longint32;flags:word;var Params;varresult:pcomvar; excepinfo,argerr:pauto ):longint32;stdcall;
+begin
+ rollid32(auto_info.dcount);
+ result :=E_NOTIMPL;
+
+ //note: inbound "iid" should be "iid_null" but it's not
+ if com__guidMatch(iid,iid_null) then
+ begin
+ //triggers a crash when "const" is removed from above function definition
+ end;
+
+ if (varresult<>nil) then
+ begin
+ varresult^.vt:=vt_null;//triggers a crash
+ end;
+
+ excepinfo :=nil;
+ argerr :=nil;
+end;
+
+function auto__get_accParent(self:pauto;out ppdispParent:IDispatch):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=s_ok;
+
+ if (self=@auto_list[0]) then ppdispParent:=nil
+ else ppdispParent:=idispatch( @auto_list[0] );
+
+end;
+
+function auto__get_accChildCount(self:pauto;out pcountChildren:longint32):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+
+ //simulate root control (auto_list[0]) with 10 children
+ if (self=@auto_list[0]) then
+ begin
+ result :=s_ok;
+ pcountChildren :=10;//triggers call to idispatch::invoke which crashes app
+ end
+ else begin
+ result :=E_NOTIMPL;
+ pcountChildren :=0;
+ end;
+end;
+
+function auto__get_accChild(self:pauto;vChild:tcomvar;out ppdispChild:IDispatch):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+
+ case comvar__i32(vchild) of
+ 1..max32:begin
+ result :=s_ok;
+ ppdispChild :=idispatch( @auto_list[1] );
+ end;
+
+ else begin
+ result :=E_NOTIMPL;
+ ppdispChild :=nil;
+ end;
+ end;//case
+
+end;
+
+function auto__get_accName(self:pauto;vChild:tcomvar;out pszName:bstr):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=s_ok;
+ pszName :=com__makebstr('control.name.'+inttostr(comvar__i32b(vchild,-999)));//25jul2026
+end;
+
+function auto__get_accValue(self:pauto;vChild:tcomvar;out pszValue:bstr):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+ pszvalue :=nil;
+end;
+
+function auto__get_accDescription(self:pauto;vChild:tcomvar;out pszDescription:bstr):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+ pszDescription :=nil;
+end;
+
+function auto__get_accRole(self:pauto;vChild:tcomvar;pvarRole:pcomvar):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=E_INVALIDARG;
+
+ if (pvarRole<>nil) then
+ begin
+ result :=s_ok;
+ comvar__seti32(pvarRole^,ROLE_SYSTEM_PUSHBUTTON);
+ end;
+
+end;
+
+function auto__get_accState(self:pauto;vChild:tcomvar;out pvarState:pcomvar):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;//E_INVALIDARG;
+ if (pvarState<>nil) then comvar__setempty(pvarState^);
+end;
+
+function auto__get_accHelp(self:pauto;vChild:tcomvar;out pszHelp:bstr):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+ pszHelp :=nil;
+end;
+
+function auto__get_accHelpTopic(self:pauto;out pszHelpFile:bstr;vChild:tcomvar;out pidTopic:longint32):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+ pszHelpFile :=nil;
+ pidTopic :=0;
+end;
+
+function auto__get_accKeyboardShortcut(self:pauto;vChild:tcomvar;out pszShortcut:bstr):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+ pszShortcut :=com__makebstr('Ctrl+F');//dummy value
+ result :=s_ok;
+end;
+
+function auto__get_accFocus(out pvarChild:pcomvar): longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+
+ if (pvarChild<>nil) then
+ begin
+ result :=s_ok;
+ comvar__seti32(pvarChild^,3);//return child 3 as focused
+ end;
+
+end;
+
+function auto__get_accSelection(self:pauto;out pvarChildren:pcomvar):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+end;
+
+function auto__get_accDefaultAction(self:pauto;vChild:tcomvar;out pszDefaultAction:bstr):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=s_false;
+ pszDefaultAction :=nil;
+end;
+
+function auto__accSelect(self:pauto;flagsSelect:longint32;varChild:tcomvar):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=s_false;//or DISP_E_MEMBERNOTFOUND;
+end;
+
+function auto__accLocation(self:pauto;out pxLeft,pyTop,pcxWidth,pcyHeight:longint32;out varChild:pcomvar):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+ pxLeft :=0;
+ pyTop :=0;
+ pcxWidth :=0;
+ pcyHeight :=0;
+end;
+
+function auto__accNavigate(self:pauto;navDir:longint32;varStart:tcomvar;out pvarEndUpAt:pcomvar):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=s_false;//or DISP_E_MEMBERNOTFOUND;
+end;
+
+function auto__accHitTest(self:pauto;xLeft,yTop:longint32;out pvarChild:pcomvar):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=s_false;//or DISP_E_MEMBERNOTFOUND;
+end;
+
+function auto__accDoDefaultAction(self:pauto;varChild:tcomvar):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+end;
+
+function auto__put_accName(self:pauto;varChild:tcomvar;const pszName:widestring):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=E_NOTIMPL;//discontinued
+end;
+
+function auto__put_accValue(self:pauto;vChild:tcomvar;const pszName:widestring):longint32;stdcall;
+begin
+ rollid32(auto_info.acount);
+ result :=DISP_E_MEMBERNOTFOUND;
+end;
+
+//gui level procs
+procedure auto__init;
+var
+ p :longint32;
+
+begin
+
+ //init -------------------------------------------------------------------------
+
+ ismultithread:=true;
+ win____CoInitialize(nil);
+
+ low__cls( @auto_info ,sizeof(auto_info) );
+ low__cls( @auto_list ,sizeof(auto_list) );
+
+ auto__connectBySlot( nil ,-1 );//emergency fallback slot
+
+ //make dummy controls
+ for p:=0 to 99 do auto__connect( tbasiccontrol.create );
+
+end;
+
+function auto__connect(const xcontrol:tbasiccontrol):longint32;
+var
+ p :longint32;
+
+begin
+
+ //defaults
+ result :=-1;
+
+ //check
+ if (xcontrol=nil) then exit;
+
+ //find existing
+ for p:=0 to high(auto_list) do
+ begin
+
+ if auto_list[p].cok and (auto_list[p].c=xcontrol) then
+ begin
+
+ result :=p;
+ exit;
+
+ end;
+
+ end;//p
+
+ //find new
+ for p:=0 to high(auto_list) do
+ begin
+
+ if not auto_list[p].cok then
+ begin
+ result :=p;
+ break;
+ end;
+
+ end;//p
+
+ //at capacity
+ if (result=-1) then exit;
+
+ //connect
+ auto__connectBySlot( xcontrol ,result );
+
+end;
+
+procedure auto__connectBySlot(const xcontrol:tbasiccontrol;const xslot:longint32);
+var
+ findex :longint32;
+
+ procedure fadd(const f:pauto);
+ begin
+
+ if ( findex nil) then
+ begin
+
+ auto_list[xslot].flist[ findex ] :=f;
+
+ inc( findex );
+
+ end;
+
+ end
+
+ else begin
+
+ showbasic('Warning: COM function exceeds capacity for tautoslot');
+
+ end;
+
+ end;
+
+begin
+
+ //check
+ if (xslot high(auto_list)) then exit;
+
+
+ //set root vars ----------------------------------------------------------------
+
+ auto_list[xslot].c :=xcontrol;
+ auto_list[xslot].cok :=(xcontrol<>nil);
+ auto_list[xslot].slot :=xslot;//25jul2025
+
+ //add COM interfaces -----------------------------------------------------------
+
+ //.unknown
+ with auto_list[xslot] do
+ begin
+
+ vtable :=@flist[0];
+ flist[0] :=@auto__iunknown__queryinterface;
+ flist[1] :=@auto__iunknown__addref;
+ flist[2] :=@auto__iunknown__release;
+ findex :=3;
+
+ end;
+
+ //.dispatch
+ fadd( @auto__idispatch__GetTypeInfoCount );
+ fadd( @auto__idispatch__GetTypeInfo );
+ fadd( @auto__idispatch__GetIDsOfNames );
+ fadd( @auto__idispatch__Invoke );
+
+ //.accessible
+ fadd( @auto__get_accParent );
+ fadd( @auto__get_accChildCount );
+ fadd( @auto__get_accChild );
+ fadd( @auto__get_accName );
+ fadd( @auto__get_accValue );
+ fadd( @auto__get_accDescription );
+ fadd( @auto__get_accRole );
+ fadd( @auto__get_accState );
+ fadd( @auto__get_accHelp );
+ fadd( @auto__get_accHelpTopic );
+ fadd( @auto__get_accKeyboardShortcut );
+ fadd( @auto__get_accFocus );
+ fadd( @auto__get_accSelection );
+ fadd( @auto__get_accDefaultAction );
+ fadd( @auto__accSelect );
+ fadd( @auto__accLocation );
+ fadd( @auto__accNavigate );
+ fadd( @auto__accHitTest );
+ fadd( @auto__accDoDefaultAction );
+ fadd( @auto__put_accName );
+ fadd( @auto__put_accValue );
+
+end;
+
+procedure auto__disconnect(const xcontrol:tbasiccontrol;var xcontrolSlot:longint32);
+var
+ p :longint32;
+
+begin
+
+ //check
+ if (xcontrol=nil) then exit;
+
+ //fast
+ if (xcontrolSlot>=0) and (xcontrolSlot =0) and (xslot nil);
+ if result then fillchar(x^,xsize,0);
+end;
+
+procedure showbasic(const x:string);
+begin
+ win____MessageBox( 0 ,pchar(x) ,'Information' ,$00000000+$40 );
+end;
+
+function comvar__ok(var x:tcomvar):boolean;
+begin
+
+ case x.vt of
+ vt_empty :result:=true;
+ vt_null :result:=true;
+ vt_i4 :result:=true;
+ vt_i4 or vt_byref :result:=true;
+ vt_dispatch :result:=true;
+ vt_dispatch or vt_byref :result:=true;
+ else result:=false;
+ end;//case
+
+end;
+
+function comvar__vt(var x:tcomvar):longint32;
+begin
+ result :=x.vt;
+end;
+
+function comvar__i32OK(var x:tcomvar):boolean;
+begin
+ case x.vt of
+ vt_i4 :result:=true;
+ vt_i4 or vt_byref :result:=true;
+ else result:=false;
+ end;//case
+end;
+
+function comvar__i32(var x:tcomvar):longint32;
+begin
+ case x.vt of
+ vt_i4 :result:=x.i32;
+ vt_i4 or vt_byref :result:=x.pi32^;
+ else result:=0;
+ end;//case
+end;
+
+function comvar__i32b(var x:tcomvar;const xdefVal:longint32):longint32;
+begin
+ case x.vt of
+ vt_i4 :result:=x.i32;
+ vt_i4 or vt_byref :result:=x.pi32^;
+ else result:=xdefVal;
+ end;//case
+end;
+
+function comvar__dispatchOK(var x:tcomvar):boolean;
+begin
+ case x.vt of
+ vt_dispatch :result:=true;
+ vt_dispatch or vt_byref :result:=true;
+ else result:=false;
+ end;//case
+end;
+
+function comvar__dispatch(var x:tcomvar):pauto;
+begin
+ case x.vt of
+ vt_dispatch :result:=x.dispatch;
+ vt_dispatch or vt_byref :result:=x.pdispatch^;
+ else result:=nil;
+ end;//case
+end;
+
+procedure comvar__init(var x:tcomvar);
+begin
+ low__cls(@x,sizeof(x));
+end;
+
+procedure comvar__setnull(var x:tcomvar);
+begin
+ x.vt :=vt_null;
+end;
+
+procedure comvar__setempty(var x:tcomvar);
+begin
+ x.vt :=vt_empty;
+end;
+
+procedure comvar__seti32(var x:tcomvar;const v:longint32);
+begin
+ x.vt :=vt_i4;
+ x.i32 :=v;
+end;
+
+procedure comvar__setDispatch(var x:tcomvar;const v:pauto);
+begin
+ x.vt :=vt_dispatch;
+ x.dispatch :=v;
+end;
+
+initialization
+ auto__init;
+
+end.
+
+```

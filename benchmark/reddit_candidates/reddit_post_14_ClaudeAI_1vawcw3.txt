@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/ClaudeAI/comments/1vawcw3/i_had_an_idea_for_an_airgapped_file_transfer/
+Subreddit: r/ClaudeAI
+Title: I had an idea for an airgapped file transfer mechanism
+================================================================================
+
+I’ve been using Claude Code to build a cached web app MP3 player (got really tired of online music streaming quality, and ads). I wanted to try adding a phone to phone file transfer option without requiring the phones to be on the same network, when I realized rapidly flashing QR codes might be a possible method. I used Claude Code to build this working POC last night. Edit: https://github.com/bashalarmistalt/decimen-optical-transfer/ Edit 2: V0.2.0 released https://decimen.app submitted by /u/Alstroph [link] [comments]

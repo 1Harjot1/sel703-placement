@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/ClaudeAI/comments/1u9esua/built_a_factchecker_that_catches_politicians/
+Subreddit: r/ClaudeAI
+Title: built a factchecker that catches politicians lying in real time
+================================================================================
+
+hi everyone ! built this as part of a larger NLP / deception research project at my university, wanted to share in case anyone finds it useful! essentially, it uses transcribed text + linguistic parameters to detect and evaluate checkworthy claims! live text transcribed --> serper finds sources using pure text --> those results sent back into claude for verdicts based on retrieved sources rather than the model’s training data let me know what would make this something you'd use! InTruth - Chrome Web Store submitted by /u/Debate_Witty [link] [comments]

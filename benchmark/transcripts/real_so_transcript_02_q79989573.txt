@@ -1,0 +1,158 @@
+Source URL: https://stackoverflow.com/questions/79989573/how-to-test-sandboxed-file-access-in-electron-with-a-free-macos-developer-accoun
+Source Platform: Stack Overflow
+Question ID: 79989573
+Title: How to test sandboxed file access in Electron with a free macOS developer account?
+================================================================================
+
+I've created an app that opens and edits text files in Electron. I'm running with electron-forge on macOS. I'd like to check that my code for creating bookmarks works.
+
+
+I'm having two issues:
+
+ 
+ Signing both "my app" and the Electron wrapper with the same identity. 
+ Creating a legit cert for this process. 
+ 
+
+In forge.config.js, I think this is the operative section:
+
+
+```
+makers: [
+{
+ name: "@electron-forge/maker-zip",
+ platforms: ["darwin"]
+}
+
+```
+
+
+I've tried `darwin` and `mas`.
+
+
+In package.json's `"scripts"`, I've tried:
+
+
+```
+"package:mas": "cross-env BUILD_TARGET=mas electron-forge package --platform=mas",
+"package:adhoc": "cross-env BUILD_TARGET=adhoc electron-forge package && bash ./manual-sign.sh"
+
+```
+
+
+Originally I'd tried to do this with an "ad-hoc identity", which it didn't like, so I updated manual-sign.sh to throw if ad-hoc was used (in the version incldued, below).
+
+
+I also tried a locally signed cert that I'd created with Keychain Access . Not super surprisingly, that didn't work.
+
+
+I also tried creating a cert within XCode for my free developer id, "Personal Team", but when I tried to find it after its creation with `security find-identity -v -p codesigning` I received `0 valid identities found`. And `security find-identity -v -p codesigning | grep "Apple Development"` gave me no output. Which meant I couldn't accomplish this:
+
+ 
+
+Find the exact identity string with:
+
+
+`security find-identity -v -p codesigning`
+
+
+Then copy the `Apple Development: ...` value exactly (including spaces/parentheses) into `APPLE_CODESIGN_IDENTITY`. If you don’t set it, the script defaults to ad-hoc signing (`-`)
+
+ 
+
+[Again, I later removed the ad-hoc setup; that seems bogus.]
+
+
+Gemini tells me:
+
+ 
+
+I am [Gemini treehugging elided] meeting you exactly where your terminal is: `0 valid identities found.`
+
+
+The fact that Xcode's "Manage Certificates" window claims to make certificates but your system command line reports absolutely nothing means the certificates Xcode creates on free accounts are hidden inside a separate, restricted keychain loop. They are intentionally prevented from registering as valid system-wide identities, meaning Electron Forge's bundler can never see them to sign an app.
+
+ 
+
+I don't know how accurate that is, but it sure wasn't popping up with those commands.
+
+
+To make things more fun, Copilot (Claude Haiku 4.5) suggested I delete my Apple Dev ID cert and recreate it. I said that doesn't make any sense unless there was something I could do differently when creating. But like an idiot I "deleted" it from Keychain Access and now I'm stuck in cert prison.
+
+
+ 
+
+ 
+
+There is a problem with the request entity
+
+
+You already have a current Development certificate or a pending certificate request
+
+ 
+
+Any ideas? Dude just wanted to test file permissions...
+
+ 
+ manual-sign.sh's contents: 
+
+```
+#!/bin/bash
+set -eo pipefail
+
+APP_PATH="${1:-./out/myApp-darwin-arm64/myApp.app}"
+IDENTITY="${APPLE_CODESIGN_IDENTITY:-}"
+PLIST="./build/entitlements.mas.plist"
+INHERIT="./build/entitlements.mas.inherit.plist"
+
+if [[ -z "$IDENTITY" || "$IDENTITY" == "-" ]]; then
+ echo "ERROR: ad-hoc signing is disabled for sandbox testing."
+ echo "Set APPLE_CODESIGN_IDENTITY to a real Apple Development identity."
+ echo "Example:"
+ echo " APPLE_CODESIGN_IDENTITY='Apple Development: Your Name (TEAMID)' npm run package:adhoc"
+ exit 2
+fi
+
+if ! security find-identity -v -p codesigning | grep -Fq "$IDENTITY"; then
+ echo "ERROR: signing identity not found in keychain search list:"
+ echo " $IDENTITY"
+ echo "Run: security find-identity -v -p codesigning"
+ exit 3
+fi
+
+if [[ ! -d "$APP_PATH" ]]; then
+ echo "App bundle not found: $APP_PATH"
+ echo "Usage: APPLE_CODESIGN_IDENTITY='Apple Development: Name (TEAMID)' bash ./manual-sign.sh [path/to/App.app]"
+ exit 1
+fi
+
+echo "=== Phase 1: Signing Vendor Frameworks ==="
+ codesign --force --verbose --timestamp=none --options runtime --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/Mantle.framework"
+ codesign --force --verbose --timestamp=none --options runtime --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/ReactiveObjC.framework"
+ codesign --force --verbose --timestamp=none --options runtime --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/Squirrel.framework"
+
+echo "=== Phase 2: Signing Electron Core Framework ==="
+# Core framework needs to be signed at its specific binary version path
+codesign --force --verbose --timestamp=none --options runtime --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework"
+codesign --force --verbose --timestamp=none --options runtime --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/Electron Framework.framework"
+
+echo "=== Phase 3: Signing App Helper Sub-processes ==="
+# Helpers handle sandbox rendering and must strictly receive the inherit plist
+codesign --force --verbose --timestamp=none --options runtime --entitlements "$INHERIT" --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/myApp Helper (GPU).app"
+codesign --force --verbose --timestamp=none --options runtime --entitlements "$INHERIT" --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/myApp Helper (Plugin).app"
+codesign --force --verbose --timestamp=none --options runtime --entitlements "$INHERIT" --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/myApp Helper (Renderer).app"
+codesign --force --verbose --timestamp=none --options runtime --entitlements "$INHERIT" --sign "$IDENTITY" "$APP_PATH/Contents/Frameworks/myApp Helper.app"
+
+echo "=== Phase 4: Signing Main Binary and App Bundle ==="
+# The main app bundle binds the configuration together and receives the master plist
+codesign --force --verbose --timestamp=none --options runtime --entitlements "$PLIST" --sign "$IDENTITY" "$APP_PATH/Contents/MacOS/myApp"
+codesign --force --verbose --timestamp=none --options runtime --entitlements "$PLIST" --sign "$IDENTITY" "$APP_PATH"
+
+echo "=== Phase 5: Verifying Structural Integrity ==="
+codesign --verify --deep --strict --verbose=2 "$APP_PATH"
+echo "=== App Entitlements ==="
+codesign -d --entitlements :- "$APP_PATH" 2>&1
+echo "=== Renderer Helper Entitlements ==="
+codesign -d --entitlements :- "$APP_PATH/Contents/Frameworks/myApp Helper (Renderer).app" 2>&1
+
+```

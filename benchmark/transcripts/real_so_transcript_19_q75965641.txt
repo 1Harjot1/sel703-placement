@@ -1,0 +1,149 @@
+Source URL: https://stackoverflow.com/questions/75965641/how-to-find-the-current-caret-cursor-index-of-a-contenteditable-true-p-tag
+Source Platform: Stack Overflow
+Question ID: 75965641
+Title: How to find the current caret/cursor index of a contenteditable=true <p> tag
+================================================================================
+
+I am really struggling to find an answer that works for my use case. I need to have awareness of where in the contentEditable 
+ tag the cursor/caret is.
+
+
+I have tried various solutions and always get the same issue, caret solution is equal to 0.
+
+
+Here is a sandbox example. If I could get it working here, I could get it working in my actual app.
+
+
+Any assistance desired:
+
+
+```
+import { Component, h } from '@stencil/core'
+
+@Component({
+ tag: 'my-editable-component',
+ styleUrl: 'my-editable-component.css',
+ shadow: true,
+})
+export class MyEditableComponent {
+ editableRef: HTMLParagraphElement
+
+ getCaretPosition() {
+ const selection = window.getSelection()
+ if (selection.rangeCount > 0) {
+ const range = selection.getRangeAt(0)
+ const preCaretRange = range.cloneRange()
+ preCaretRange.selectNodeContents(this.editableRef)
+ preCaretRange.setEnd(range.endContainer, range.endOffset)
+ return preCaretRange.toString().length
+ }
+ return 0
+ }
+
+ handleInput = () => {
+ console.log('Caret position:', this.getCaretPosition())
+ }
+
+ render() {
+ return (
+ 
+ (this.editableRef = el as HTMLParagraphElement)} contentEditable onInput={this.handleInput}>
+ Click to edit text and log caret position
+ 
+
+ 
+ )
+ }
+}
+
+```
+
+
+ FIRST EDIT 
+
+
+After the first answer to this question I want to provide some more context around my use case and the issues I have seen tso far.
+
+
+I am building a document editing application. For the scope of this discussion, users just need to be able to edit paragraphs. So far so good.
+
+
+I feel that I have hit a brick wall as I have begun trying to interact with the caret.
+
+
+The basic architecture of my application:
+
+
+```
+ 
+ 
+ 
+
+```
+
+
+Most of the functions exist in document-editor and are passed to the children where necessary. The same goes for the state management.
+
+
+Both the parent and child stencil component have `shadow: true`
+
+
+One of the major issues I am facing is that I cannot access the `getSelection()` on HTMLElement.shadowRoot.getSelection() as I get a compiler issue.
+
+
+I believe this is marked as part of the non-standard api according to MDN .
+
+
+I am going to add some more verbose code snippets below. Please note at the time of writing they are not expected to work and are a recent synthesis of the first answer to this post. One of the blockers here is the above linked non-standard api issue.
+
+
+The function I am using to return the current caret position is passed to the child document-paragraph as a prop where it is invoked onKeyUp.
+
+
+Here is the function:
+
+
+```
+getCurrentCaretIndex = (): number => {
+// return (this.blockRefs.get(`block-id-${this.blocks[this.currentBlockIndex].id}`).querySelector('#editable-content') as HTMLTextAreaElement).selectionStart
+// const documentParagraph = this.blockRefs.get(`block-id-${this.blocks[this.currentBlockIndex].id}`) as HTMLElement
+
+const thisComponent = this.el
+
+const documentComponent = this.blockRefs.get(`block-id-${this.blocks[this.currentBlockIndex].id}`)
+
+const element = documentComponent.shadowRoot.querySelector('#editable-content') as HTMLElement
+
+const selection = documentComponent.shadowRoot.getSelection()
+
+let pos = selection.rangeCount
+if (pos) {
+ let range = selection.getRangeAt(0)
+ let cloneRange = range.cloneRange()
+ cloneRange.selectNodeContents(element)
+ cloneRange.setEnd(range.endContainer, range.endOffset)
+ pos = cloneRange.toString().length
+}
+
+return pos
+
+```
+
+
+}
+
+
+And my TS compiler takes issue with the use of shadowRoot.getSelection()
+ 
+
+
+So at least with my current config, I cannot access the shadowRoot.selection on the documentComponent's element with ID editable-content.
+
+
+It is really annoying because the caret is obviously of the utmost importance for a document editor.
+
+
+I also tried using a textarea instead where I had no issues accessing the selection property but textarea does not support rich-text :/
+
+
+Am I missing something?

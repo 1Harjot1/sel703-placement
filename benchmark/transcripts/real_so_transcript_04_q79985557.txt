@@ -1,0 +1,31 @@
+Source URL: https://stackoverflow.com/questions/79985557/how-to-install-mcp-server-dev-for-github-copilot
+Source Platform: Stack Overflow
+Question ID: 79985557
+Title: How to install mcp-server-dev for GitHub Copilot?
+================================================================================
+
+https://modelcontextprotocol.io/docs/develop/build-with-agent-skills shows installation of the `mcp-server-dev` for Claude:
+
+
+```
+/plugin marketplace add anthropics/claude-plugins-official
+/plugin install mcp-server-dev
+
+```
+
+
+It mentions:
+
+ 
+
+For other agents, check your skills or extensions catalog, or clone the skill directories (SKILL.md plus references/) into your agent’s skills location.
+
+ 
+
+and that's what this post is all about.
+
+
+ https://code.visualstudio.com/docs/agent-customization/agent-skills 
+
+
+How do I install the `mcp-server-dev` plugin for GitHub Copilot? I use GitHub Copilot in VS Code on Ubuntu.

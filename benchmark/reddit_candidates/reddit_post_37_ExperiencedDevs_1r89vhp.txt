@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/ExperiencedDevs/comments/1r89vhp/whats_the_mood_at_your_company/
+Subreddit: r/ExperiencedDevs
+Title: What’s the mood at your company?
+================================================================================
+
+Im mid-level at a standard non-tech Fortune 500 and the overall mood seems mildly checked out. Most devs are offloading a lot of their work onto Claude. It’s not slop. It’s reviewed, refined, and tested, but it is still reducing intimacy and familiarity with the repos. People are mostly camera off. A lot of people are ignoring the in office mandates. I’ve noticed more gaps in slack response times which leads me to belief people are off doing things during work hours (and to be clear, I’m fully fine with this. In an ideal world that is the what AI is supposed to enable). Regardless, the work is getting done, the stock is doing well, the company is in good shape financially. But the general mood and enthusiasm is just mildly resigned, at least on the Dev side. Wondering if this is common. submitted by /u/c-u-in-da-ballpit [link] [comments]

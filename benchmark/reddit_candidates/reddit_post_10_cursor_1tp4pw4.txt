@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/cursor/comments/1tp4pw4/current_trend/
+Subreddit: r/cursor
+Title: Current trend
+================================================================================
+
+I feel personally attacked by this meme. Every project starts with the same promise: "This time I'm actually going to understand how everything works." Then I hit one weird bug, spend 20 minutes investigating, and immediately start negotiating with myself. Maybe I don't need to understand the entire system. Maybe I just need the bug to stop existing. A few hours later, I've asked Cursor for suggestions, gone back and forth with ChatGPT, copied a stack trace into three different tabs, pushed a commit that somehow works, and deployed it before I've fully processed what happened. Somewhere in the middle, I've probably cleaned up the screenshots, updated the docs, and put together something presentable in Runable because showing progress is easier than understanding root causes. The feature ships. The users are happy. Everything works. If you ask me why it works, though, that's a completely different conversation. submitted by /u/EfficientMongoose317 [link] [comments]

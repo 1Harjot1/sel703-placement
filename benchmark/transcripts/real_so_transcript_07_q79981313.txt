@@ -1,0 +1,118 @@
+Source URL: https://stackoverflow.com/questions/79981313/office-local-plugin-is-unable-to-be-invoked-by-declarative-agent
+Source Platform: Stack Overflow
+Question ID: 79981313
+Title: Office local plugin is unable to be invoked by Declarative Agent
+================================================================================
+
+I have built a declarative agent using M365 Agent toolkit, this agent uses API plugin and Local Office plugins(using Office JS). Earlier agent was able to invoke the Local Office Addins as well as API plugins.
+
+
+All of a sudden, now my office add ins are not able to be invoked by the Copilot Agent. I made the agent to be invoked within M365 Copilot app within Word/Excel. Office local plugin was used to summarize the selection in Excel and Word, and to add a comment against that selection in word/excel.
+
+
+There is used to be a article for building local plugin, however it is now redirecting to another page. https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/build-api-plugins-local-office-api . I am also not able to find the code samples for the same. Can anyone confirm if this feature is not supported now in M365 Copilot Declarative agent?
+
+
+Command.html:
+
+
+```
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+```
+
+
+Command.ts:
+
+
+```
+async function fillColor(cell, color) {
+ // @ts-ignore
+ await Excel.run(async (context) => {
+ context.workbook.worksheets.getActiveWorksheet().getRange(cell).format.fill.color = color;
+ await context.sync();
+ })
+}
+
+async function getSelectedContent() {
+ // @ts-ignore
+ if (Office.context.host === Office.HostType.Word) {
+ // @ts-ignore
+ return await Word.run(async (context) => {
+ const selection = context.document.getSelection();
+ selection.load("text");
+ await context.sync();
+ return JSON.stringify({ content: selection.text });
+ });
+ } else {
+ // @ts-ignore
+ return await Excel.run(async (context) => {
+ const range = context.workbook.getSelectedRange();
+ range.load(["values", "address"]);
+ await context.sync();
+ const text = range.values.map(row => row.filter(c => c !== "").join("\t")).join("\n");
+ return JSON.stringify({ address: range.address, content: text });
+ });
+ }
+}
+
+async function addComment(commentText) {
+ // @ts-ignore
+ if (Office.context.host === Office.HostType.Word) {
+ // @ts-ignore
+ return await Word.run(async (context) => {
+ const selection = context.document.getSelection();
+ selection.insertComment(commentText);
+ await context.sync();
+ return "Comment added to selected text.";
+ });
+ } else {
+ // @ts-ignore
+ return await Excel.run(async (context) => {
+ const range = context.workbook.getSelectedRange();
+ range.load("address");
+ await context.sync();
+ // Get the last cell of the selection
+ const lastCell = range.getLastCell();
+ lastCell.load("address");
+ await context.sync();
+ context.workbook.comments.add(lastCell, commentText);
+ await context.sync();
+ return `Comment added to cell ${lastCell.address}.`;
+ });
+ }
+}
+
+// @ts-ignore
+Office.onReady((info) => {
+ // @ts-ignore
+ Office.actions.associate("FillColor", async (message) => {
+ const { Cell: cell, Color: color } = JSON.parse(message);
+ await fillColor(cell, color);
+ return "Cell color changed.";
+ });
+
+ // @ts-ignore
+ Office.actions.associate("GetSelectedContent", async (_message) => {
+ return await getSelectedContent();
+ });
+
+ // @ts-ignore
+ Office.actions.associate("AddComment", async (message) => {
+ const { Comment: commentText } = JSON.parse(message);
+ return await addComment(commentText);
+ });
+});
+
+```

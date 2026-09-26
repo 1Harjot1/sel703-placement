@@ -1,0 +1,72 @@
+Source URL: https://stackoverflow.com/questions/79872256/monorepo-ai-tools-copilot-cursor-does-having-full-codebase-context-provide
+Source Platform: Stack Overflow
+Question ID: 79872256
+Title: Monorepo + AI tools (Copilot, Cursor): does having full codebase context provide real advantages in practice?
+================================================================================
+
+I work in a frontend environment with multiple applications and shared libraries. 
+Historically, these projects have lived in separate repositories (multi-repo), and shared functionality was either duplicated or partially reused, which led to inconsistencies and bugs being fixed in one project but not in others.
+
+
+Recently, I’ve been evaluating monorepos (e.g. Nx / Turborepo) not only from the usual perspectives (code sharing, refactors, CI optimization), but also from the angle of AI-assisted development .
+
+
+One potential advantage I see is that, in a monorepo:
+
+ 
+ 
+applications and shared libraries live in the same place
+
+ 
+ 
+contracts, types, and usages are visible together
+
+ 
+ 
+AI tools like GitHub Copilot, Cursor, or similar can access the full context of the system
+
+ 
+ 
+
+My hypothesis is that this could improve:
+
+ 
+ 
+refactors that touch shared APIs
+
+ 
+ 
+propagating changes across multiple apps
+
+ 
+ 
+consistency when updating reusable methods or types
+
+ 
+ 
+reducing copy/paste–driven divergence
+
+ 
+ 
+
+However, this is more an intuition than something I’ve validated extensively in production.
+
+
+ My questions are: 
+
+ 
+ 
+Have you observed real, practical benefits when using AI coding tools in a monorepo compared to multi-repo setups?
+
+ 
+ 
+Does having the full codebase context actually improve the quality of AI suggestions/refactors?
+
+ 
+ 
+Are there any downsides or limitations you’ve encountered when combining monorepos with AI-assisted development?
+
+ 
+ 
+
+I’m especially interested in experiences from teams working with TypeScript-heavy codebases and shared domain logic.

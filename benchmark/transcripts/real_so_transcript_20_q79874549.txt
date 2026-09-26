@@ -1,0 +1,80 @@
+Source URL: https://stackoverflow.com/questions/79874549/python-client-getting-stuck-when-sending-async-generator-to-server-over-httpx
+Source Platform: Stack Overflow
+Question ID: 79874549
+Title: Python - Client getting stuck when sending async generator to server over httpx
+================================================================================
+
+I've got this client script:
+
+
+```
+async with cur.copy("""COPY (SELECT {COLUMNS} FROM totals) TO STDOUT WITH (FORMAT text)""") as copy:
+ async def batcher():
+ i = 0
+ while True:
+ i += 1
+ log_and_add_to_meta(job, Stream.STDOUT, f"Uploading total batch {i}\n")
+ batch = []
+ for _ in range(10000):
+ x = await copy.read()
+ if not x:
+ if batch:
+ yield b"".join(batch)
+ log_and_add_to_meta(job, Stream.STDOUT, "Finished with batching\n")
+ return
+ batch.append(x)
+ yield b"".join(batch)
+
+ resp = await client.post(
+ "{ENDPOINT}",
+ content=batcher(),
+ cookies={"session": TOKEN},
+ )
+ log_and_add_to_meta(job, Stream.STDOUT, "Finished uploading all totals\n")
+
+```
+
+
+`client` is an `httpx.AsyncClient`. `cur` is a `psycopg.AsyncCursor`.
+
+
+And here's the server code:
+
+
+```
+@router.post("{ENDPOINT}")
+async def import_totals(
+ request: Request,
+ user: SuperUser,
+ cnn: DbCnn,
+):
+ async with cnn.cursor() as cur:
+ async with cnn.transaction():
+ (...)
+ await create_totals_buffer(cur, request.stream())
+ (...)
+ return Response(status_code=200)
+
+async def create_totals_buffer(cur: DbCnn.cursor, stream: AsyncGenerator):
+ await cur.execute("CREATE TEMP TABLE totals_buffer (LIKE totals, id serial) ON COMMIT DROP")
+ LOGGER.debug("Create temp totals_buffer")
+ async with cur.copy("""COPY totals_buffer ({COLUMNS}) FROM STDIN WITH (FORMAT text)""") as cp:
+ async for total in stream:
+ await cp.write(total)
+
+```
+
+
+When I run this code over a small number of rows (a few hundred thousand), it works as expected. The server receives all the data, the client terminates, all good.
+
+
+But when I run it on a larger number of rows (a few million), while the server still receives all the data I expect and logs a 200 response, the client remains stuck awaiting client.post (i.e. I never see the `"Finished uploading all totals"` message logged).
+
+
+I've tried all sorts of things. Adding an empty line to the end of the generator (`yield b''`), explicitly re-draining the stream on the server (`async for _ in stream: pass` in `create_totals_buffer`), refactoring the `resp = await client.post()` call into an `async with client.stream("POST",...) as resp:` block, adding `headers={"Connection": "close"}` to the Response. Nothing's made any difference.
+
+
+The rows aren't big - 10 columns, each either a short text or int. It only takes a few seconds to stream the millions of rows, so I really don't see why the client should be struggling.
+
+
+ChatGPT keeps talking about backpressure, but that doesn't really make sense to me; my understanding of backpressure is that it occurs when the client is attempting to send data faster than the server can process it, meaning the client's memory gets filled and eventually blocked. In my case, the server receives all the data and returns 200 - so the client's work is done, right? What's it still waiting for? (Note that the server doesn't return any data.)

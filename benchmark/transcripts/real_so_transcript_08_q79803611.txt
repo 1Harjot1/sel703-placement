@@ -1,0 +1,49 @@
+Source URL: https://stackoverflow.com/questions/79803611/how-configure-github-copilot-in-vs-code-to-work-with-azure-openai-azure-ai-found
+Source Platform: Stack Overflow
+Question ID: 79803611
+Title: How configure GitHub Copilot in VS Code to work with Azure OpenAI/Azure AI Foundry
+================================================================================
+
+I am trying to set up GitHub Copilot Chat with an Azure hosted OpenAI model.
+
+
+But I am struggling to find an authorative answer on what to enter for the endpoint.
+
+
+Some blog posts suggest: `https://xxx.openai.azure.com/openai/deployments/gpt-5-mini/chat/completions?api-version=2025-04-01-preview`
+
+
+some to just copy the Target URL from the deployment pane of Azure AI Foundry `https://xxx.openai.azure.com/openai/responses?api-version=2025-04-01-preview`
+
+
+With all conceivable combinations I am getting:
+
+ 
+
+Sorry, your request failed. Please try again. Request id: 64c2927b-4108-424a-9241-82485214d597
+Reason: Resource not found
+
+ 
+
+My complete config looks like this (with varying urls):
+
+ ` "github.copilot.chat.azureModels": {
+ "gpt-5-mini": {
+ "name": "gpt-5-mini",
+ "url": "https://xxx.openai.azure.com/openai/deployments/gpt-5-mini/chat/completions?api-version=2025-04-01-preview",
+ "toolCalling": true,
+ "vision": true,
+ "thinking": true,
+ "maxInputTokens": 272000,
+ "maxOutputTokens": 128000,
+ }
+ },
+
+```
+
+
+Current issues on GitHub for VS Code may also suggest that something else is broken with this extension at the moment, but I am not getting the same error that most people report. So I might already be stuck earlier.
+
+ 
+ https://github.com/microsoft/vscode-copilot-release/issues/8483 
+ https://github.com/microsoft/vscode-copilot-release/issues/8012

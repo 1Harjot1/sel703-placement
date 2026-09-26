@@ -1,0 +1,185 @@
+Source URL: https://stackoverflow.com/questions/77402347/position-the-image-to-the-right-relative-to-the-text-html-css
+Source Platform: Stack Overflow
+Question ID: 77402347
+Title: Position the image to the right relative to the text HTML CSS
+================================================================================
+
+I'm making a website for my school project but I have a problem with my image. I want the picture to be on the right relative to the text.
+
+
+ 
+ 
+ `@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+* {
+ padding: 0;
+ margin: 0;
+ outline: none;
+ border: none;
+ box-sizing: border-box;
+}
+
+img {
+ width: 100%;
+ display: flex;
+ cursor: default;
+}
+
+a {
+ text-decoration: none;
+}
+
+body {
+ font-family: 'Poppins', sans-serif;
+ background-color: #18181B;
+}
+
+nav {
+ max-width: 1200px;
+ margin: auto;
+ padding: 2rem 1rem;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 2rem;
+}
+
+.nav-logo {
+ max-width: 100px;
+}
+
+.nav-links {
+ list-style: none;
+ display: flex;
+ align-items: center;
+ gap: 3rem;
+}
+
+.link a {
+ position: relative;
+ padding-bottom: 0.75rem;
+ color: #fff;
+}
+
+.link a::after {
+ content: "";
+ position: absolute;
+ height: 2px;
+ width: 0;
+ bottom: 0;
+ left: 0;
+ background-color: #23b5ce;
+ transition: all 0.3s ease;
+}
+
+.link a:hover::after {
+ width: 70%;
+}
+
+.btn {
+ padding: 1rem 2rem;
+ border-radius: 5px;
+ color: #fff;
+ font-size: 1rem;
+ background-color: #1c9eb5;
+ cursor: pointer;
+ transition: all 0.3s ease;
+}
+
+.btn:hover {
+ background-color: #1a8b9f;
+}
+
+.container {
+ max-width: 1200px;
+ margin: auto;
+ padding: 5rem 2rem;
+}
+
+.blur {
+ position: absolute;
+ box-shadow: 0 0 1000px 50px #1a8b9f;
+ z-index: -100;
+}
+
+header {
+ position: relative;
+ padding-top: 2rem;
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ align-items: center;
+ gap: 2rem;
+}
+
+.content {
+ color: #fff;
+}
+
+.content p {
+ padding-bottom: 100px;
+}
+
+.code h4 {
+ white-space: pre-wrap;
+}
+```
+
+ ` 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ PyProject-Assistant 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Home 
+ Pricing 
+ About 
+ Contact Us 
+ 
+ Support Me 
+ 
+ 
+ 
+ 
+ 
+ WELCOME TO THE PyProject-Assistant WORLD 
+ Hi, I'm Max , young progremmer 
+ 
+who is trying to enroll in MEPhI
+
+ Download 
+ 
+ 
+ 
+ 
+ while (alive) { eat(); sleep(); code(); repeat(); } 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+```
+
+ 
+ 
+
+
+
+Thank you for your help, if you see some parts of my code that I can optimize tell me about them pls.
+
+
+I tried to find the solution on the Internet. But unfortunately, nothing helps.

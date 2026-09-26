@@ -1,0 +1,52 @@
+[
+    {
+        "name": "Non-deterministic Output",
+        "description": "The model produces meaningfully different code, advice, or structure for the same prompt on repeated invocations — without any change in input.",
+        "citation": "Chen et al. (2021) Codex evaluation; Ji et al. (2023) hallucination survey"
+    },
+    {
+        "name": "Hallucination with High Confidence",
+        "description": "The model asserts fabricated facts — non-existent API methods, incorrect library signatures, false bug diagnoses — with high expressed certainty and no hedging.",
+        "citation": "Ji et al. (2023) ACM Computing Surveys; Sharma et al. (2023) sycophancy"
+    },
+    {
+        "name": "Context Window Truncation",
+        "description": "The model silently drops earlier parts of the conversation — prior architectural decisions, variable names, agreed constraints — as the context grows, without indicating that information has been lost.",
+        "citation": "Shi et al. (2023) ICML; Liu et al. (2024) Lost in the Middle, TACL"
+    },
+    {
+        "name": "Instruction Non-Adherence",
+        "description": "The model ignores explicit constraints stated in the prompt — returning the full file when told to return only changed lines, exceeding stated length limits, or using a language the developer did not request.",
+        "citation": "Ouyang et al. (2022) InstructGPT, NeurIPS"
+    },
+    {
+        "name": "Sycophantic Capitulation",
+        "description": "When the developer expresses doubt or pushes back, the model abandons a previously correct answer and adopts the developer's (incorrect) position, reinforcing errors rather than maintaining accuracy.",
+        "citation": "Sharma et al. (2023) arXiv:2310.13548"
+    },
+    {
+        "name": "Unstructured Output",
+        "description": "The model returns an undifferentiated wall of text — no headers, no chunking, no clear delineation between explanation and code — forcing the developer to perform cognitive reorganisation before the content is usable.",
+        "citation": "Sweller (1988) cognitive load theory; Mougouei et al. (2025)"
+    },
+    {
+        "name": "Ambiguous Multi-Option Output",
+        "description": "The model presents two or more equally-weighted alternative solutions, approaches, or implementations without a recommendation, leaving the decision entirely to the developer.",
+        "citation": "Iyengar and Lepper (2000) paradox of choice; Brown (2006)"
+    },
+    {
+        "name": "Critical Tone in Correction",
+        "description": "The model frames corrections to the developer's code or approach in evaluative, authoritative, or negatively-toned language rather than collaborative or neutral language.",
+        "citation": "Surman et al. (2013) rejection sensitivity dysphoria"
+    },
+    {
+        "name": "Silent Context Reset",
+        "description": "The model stops referencing variables, class names, architecture decisions, or prior agreements from earlier in the conversation without alerting the developer that its context has shifted.",
+        "citation": "Liu et al. (2024) Lost in the Middle, TACL"
+    },
+    {
+        "name": "Scope Creep in Generation",
+        "description": "The model rewrites, refactors, or restructures code significantly beyond the scope of what was requested — changing method signatures, file structure, or architectural patterns without instruction.",
+        "citation": "Barkley (1997) inhibition deficit; Ouyang et al. (2022)"
+    }
+]

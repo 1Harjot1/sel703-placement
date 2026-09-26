@@ -1,0 +1,149 @@
+{
+  "W3C-COGA-4.1.1": {
+    "standard_name": "W3C Cognitive Accessibility (COGA)",
+    "section": "Pattern 4.1.1 \u2014 Use Clear Controls",
+    "source_url": "https://www.w3.org/TR/coga-usable/",
+    "provenance": {
+      "source_api": "W3C Technical Architecture Group",
+      "source_url": "https://www.w3.org/TR/coga-usable/",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "Make controls easy to identify and understand.",
+      "req2": "Use standard controls and icons with visual cues that show how to use them."
+    }
+  },
+  "W3C-COGA-4.2.1": {
+    "standard_name": "W3C Cognitive Accessibility (COGA)",
+    "section": "Pattern 4.2.1 \u2014 Make the Purpose of Your Page Clear",
+    "source_url": "https://www.w3.org/TR/coga-usable/",
+    "provenance": {
+      "source_api": "W3C Technical Architecture Group",
+      "source_url": "https://www.w3.org/TR/coga-usable/",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "Help the user immediately understand what the site or page is for and what they can do on it."
+    }
+  },
+  "W3C-COGA-4.2.4": {
+    "standard_name": "W3C Cognitive Accessibility (COGA)",
+    "section": "Pattern 4.2.4 \u2014 Make Each Step Clear",
+    "source_url": "https://www.w3.org/TR/coga-usable/",
+    "provenance": {
+      "source_api": "W3C Technical Architecture Group",
+      "source_url": "https://www.w3.org/TR/coga-usable/",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "Provide a clear structure with simple steps when the user is trying to complete a process or task."
+    }
+  },
+  "W3C-COGA-4.3.1": {
+    "standard_name": "W3C Cognitive Accessibility (COGA)",
+    "section": "Pattern 4.3.1 \u2014 Use Clear and Simple Language",
+    "source_url": "https://www.w3.org/TR/coga-usable/",
+    "provenance": {
+      "source_api": "W3C Technical Architecture Group",
+      "source_url": "https://www.w3.org/TR/coga-usable/",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "Use short, simple sentences.",
+      "req2": "Avoid complex jargon unless necessary for the domain."
+    }
+  },
+  "W3C-COGA-4.5.2": {
+    "standard_name": "W3C Cognitive Accessibility (COGA)",
+    "section": "Pattern 4.5.2 \u2014 Provide Chunked Information",
+    "source_url": "https://www.w3.org/TR/coga-usable/",
+    "provenance": {
+      "source_api": "W3C Technical Architecture Group",
+      "source_url": "https://www.w3.org/TR/coga-usable/",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "Present complex data in digestible chunks ($4 \\pm 1$ items per block)."
+    }
+  },
+  "W3C-WCAG-2.2.1": {
+    "standard_name": "W3C Web Content Accessibility Guidelines (WCAG 2.2)",
+    "section": "Success Criterion 2.2.1 \u2014 Timing Adjustable",
+    "source_url": "https://www.w3.org/TR/WCAG22/#timing-adjustable",
+    "provenance": {
+      "source_api": "W3C Web Accessibility Initiative",
+      "source_url": "https://www.w3.org/TR/WCAG22/#timing-adjustable",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "For each time limit that is set by the content, at least one of the following is true: Turn off, Adjust, Extend, Real-time Exception, Essential Exception, or 20 Hour Exception."
+    }
+  },
+  "W3C-WCAG-3.3.4": {
+    "standard_name": "W3C Web Content Accessibility Guidelines (WCAG 2.2)",
+    "section": "Success Criterion 3.3.4 \u2014 Error Prevention (Data)",
+    "source_url": "https://www.w3.org/TR/WCAG22/#error-prevention-legal-financial-data",
+    "provenance": {
+      "source_api": "W3C Web Accessibility Initiative",
+      "source_url": "https://www.w3.org/TR/WCAG22/#error-prevention-legal-financial-data",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "For Web pages that cause legal commitments or financial transactions for the user to occur, that modify or delete user-controllable data in data storage systems, or that submit user test responses, at least one of the following is true: Reversible, Checked, Confirmed."
+    }
+  },
+  "W3C-WCAG-3.3.7": {
+    "standard_name": "W3C Web Content Accessibility Guidelines (WCAG 2.2)",
+    "section": "Success Criterion 3.3.7 \u2014 Redundant Entry",
+    "source_url": "https://www.w3.org/TR/WCAG22/#redundant-entry",
+    "provenance": {
+      "source_api": "W3C Web Accessibility Initiative",
+      "source_url": "https://www.w3.org/TR/WCAG22/#redundant-entry",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "Information previously entered by or provided to the user that is required to be entered again in the same process is either: auto-populated, or available for the user to select."
+    }
+  },
+  "W3C-WCAG-3.3.8": {
+    "standard_name": "W3C Web Content Accessibility Guidelines (WCAG 2.2)",
+    "section": "Success Criterion 3.3.8 \u2014 Accessible Authentication",
+    "source_url": "https://www.w3.org/TR/WCAG22/#accessible-authentication-minimum",
+    "provenance": {
+      "source_api": "W3C Web Accessibility Initiative",
+      "source_url": "https://www.w3.org/TR/WCAG22/#accessible-authentication-minimum",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "A cognitive function test (such as remembering a password or solving a puzzle) is not required for any step in an authentication process unless that step provides at least one of the following: Alternative, Mechanism, Object Recognition, Personal Content."
+    }
+  },
+  "EU-AI-ACT-Art-13": {
+    "standard_name": "EU Artificial Intelligence Act (Regulation 2024/1689)",
+    "section": "Article 13 \u2014 Transparency and Provision of Information",
+    "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689#013",
+    "provenance": {
+      "source_api": "EUR-Lex Official Journal of the European Union",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689#013",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "High-risk AI systems shall be designed and developed in such a way as to ensure that their operation is sufficiently transparent to enable deployers to interpret the system's output and use it appropriately.",
+      "req2": "An appropriate type and degree of transparency shall be ensured with a view to achieving compliance with the relevant obligations of the deployer and of the provider."
+    }
+  },
+  "EU-AI-ACT-Art-14": {
+    "standard_name": "EU Artificial Intelligence Act (Regulation 2024/1689)",
+    "section": "Article 14 \u2014 Human Oversight",
+    "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689#014",
+    "provenance": {
+      "source_api": "EUR-Lex Official Journal of the European Union",
+      "source_url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32024R1689#014",
+      "fetch_timestamp": "2026-09-15T00:00:00Z"
+    },
+    "sentences": {
+      "req1": "High-risk AI systems shall be designed and developed in such a way, including with appropriate human-machine interface tools, that they can be effectively overseen by natural persons during the period in which they are in use.",
+      "req2": "Human oversight shall aim to prevent or minimise the risks to health, safety or fundamental rights that may emerge when a high-risk AI system is used in accordance with its intended purpose."
+    }
+  }
+}

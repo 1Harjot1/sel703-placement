@@ -1,0 +1,324 @@
+{
+  "real_assistant_transcript_01.txt": {
+    "source_url": "https://github.com/david-wiggs/actions-copilot/pull/20",
+    "title": "Investigate code scanning alerts #5/#6/#7; blocked by Code Scanning API permissions",
+    "actual_char_length": 906,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 3,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 3
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": true,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": true
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_02.txt": {
+    "source_url": "https://github.com/ScottKirvan/QuKi-Notes/issues/244",
+    "title": "[FEATURE] Block (fenced) code",
+    "actual_char_length": 1126,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 3,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 3
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": true,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": true
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_03.txt": {
+    "source_url": "https://github.com/sho7650/obsidian-AI-exporter/issues/394",
+    "title": "Claude/ChatGPT sync aborts while scrolling through a single very tall turn (long code block)",
+    "actual_char_length": 3679,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 4,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 1,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": true,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": false,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_04.txt": {
+    "source_url": "https://github.com/Yogender-verma/project-pilot/issues/45",
+    "title": "Add Copy Code Button for AI Mentor Code Blocks",
+    "actual_char_length": 4657,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 4,
+      "COGA-4.2.1-AMBIG": 1,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 3
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": true,
+      "COGA-4.2.1-AMBIG": false,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": true
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_05.txt": {
+    "source_url": "https://github.com/zed-industries/zed/issues/62032",
+    "title": "Copying code removes double underscores (\"__\") on one macOS machine",
+    "actual_char_length": 2352,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 1,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 3
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": false,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": true
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_06.txt": {
+    "source_url": "https://github.com/nolabs-ai/nono/issues/1481",
+    "title": "`claude` profile blocks Claude Code's config writes (`.claude.json.tmp.*`)",
+    "actual_char_length": 1672,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 1,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 3
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": false,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": true
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_07.txt": {
+    "source_url": "https://github.com/MJP-76/KirkHillWindFarm/issues/24",
+    "title": "Code Review - Thanks Claude ;)",
+    "actual_char_length": 6933,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 4,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": true,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_08.txt": {
+    "source_url": "https://github.com/eresende/peperspray/issues/1",
+    "title": "Spec: Optional local LLM assistant integration",
+    "actual_char_length": 20481,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 1,
+      "COGA-4.2.1-AMBIG": 1,
+      "WCAG-3.3.4-INHIB": 4,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 1,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": false,
+      "COGA-4.2.1-AMBIG": false,
+      "WCAG-3.3.4-INHIB": true,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": false,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_09.txt": {
+    "source_url": "https://github.com/anomalyco/opencode/pull/36532",
+    "title": "fix(provider): do not place Bedrock cachePoint after reasoning blocks",
+    "actual_char_length": 3769,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 1,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": false,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_10.txt": {
+    "source_url": "https://github.com/magnusoverli/opencode/issues/45",
+    "title": "Track Home Assistant native LLM and MCP development",
+    "actual_char_length": 2092,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 4,
+      "COGA-4.2.1-AMBIG": 1,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": true,
+      "COGA-4.2.1-AMBIG": false,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_11.txt": {
+    "source_url": "https://github.com/akepo225/gh-pr-context/issues/41",
+    "title": "PRD: Monitor Mode",
+    "actual_char_length": 10497,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 1,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 4,
+      "WCAG-2.2.6-TIME": 4,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": false,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": true,
+      "WCAG-2.2.6-TIME": true,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_12.txt": {
+    "source_url": "https://github.com/imDarshanGK/AI-dev-assistant/pull/1674",
+    "title": "Fix/chat fallback code correction",
+    "actual_char_length": 1113,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 4,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": true,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_13.txt": {
+    "source_url": "https://github.com/hericlibong/datascope-ai/pull/47",
+    "title": "Add LLM Assistant role for verified source suggestions",
+    "actual_char_length": 4987,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 4,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 4,
+      "WCAG-2.2.6-TIME": 1,
+      "EU-AI-ACT-ART13": 3,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": true,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": true,
+      "WCAG-2.2.6-TIME": false,
+      "EU-AI-ACT-ART13": true,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  },
+  "real_assistant_transcript_14.txt": {
+    "source_url": "https://github.com/hackinsdn/dashboard/pull/297",
+    "title": "feat(rag): local LLM RAG assistant for the chat widget (phase 1)",
+    "actual_char_length": 6569,
+    "collection_date": "2026-08-07",
+    "rubric_scores": {
+      "COGA-4.2.4-WM": 1,
+      "COGA-4.2.1-AMBIG": 3,
+      "WCAG-3.3.4-INHIB": 1,
+      "WCAG-2.2.6-TIME": 4,
+      "EU-AI-ACT-ART13": 1,
+      "EU-AI-ACT-ART14": 1
+    },
+    "ground_truth_violations": {
+      "COGA-4.2.4-WM": false,
+      "COGA-4.2.1-AMBIG": true,
+      "WCAG-3.3.4-INHIB": false,
+      "WCAG-2.2.6-TIME": true,
+      "EU-AI-ACT-ART13": false,
+      "EU-AI-ACT-ART14": false
+    },
+    "adjudicated_by_harjot": false
+  }
+}

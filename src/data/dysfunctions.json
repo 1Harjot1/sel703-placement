@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "name": "Working Memory Overload",
+    "mechanism_text": "The phonological loop and visuospatial sketchpad \u2014 the two active storage components of working memory \u2014 experience capacity overflow when more than three simultaneous state changes are imposed. Information already held in the buffer is displaced and lost.",
+    "neuro_basis": "Phonological loop and visuospatial sketchpad overflow (Baddeley 1992); extraneous cognitive load from poor information architecture (Sweller 1988)",
+    "sdlc_manifestation": "Developer loses track of variable states, prior API decisions, or code context when the LLM introduces unsolicited changes or multiple simultaneous suggestions",
+    "citation": "Barkley (1997); Sweller (1988)"
+  },
+  {
+    "id": "2",
+    "name": "Delay Aversion",
+    "mechanism_text": "Dopaminergic dysregulation in the mesolimbic pathway causes acute distress during indeterminate waiting states. The individual cannot sustain attention or task engagement when the outcome timing is unpredictable, leading to task abandonment.",
+    "neuro_basis": "Dual-pathway model: hypersensitivity to delay in the motivational pathway (Sonuga-Barke 2003)",
+    "sdlc_manifestation": "Developer abandons the current SDLC task or switches context impulsively when the LLM produces no output, a progress indicator, or an indeterminate streaming response",
+    "citation": "Sonuga-Barke (2003)"
+  },
+  {
+    "id": "3",
+    "name": "Set-Shifting Cost",
+    "mechanism_text": "The cognitive cost of disengaging from one task-set and reconfiguring mental resources for a new one is disproportionately high. Re-engagement with the prior task requires substantial additional effort to reconstruct the prior mental model.",
+    "neuro_basis": "Elevated reconfiguration time and perseveration errors during task switching (Nigg 2006)",
+    "sdlc_manifestation": "Developer incurs severe productivity loss when the LLM introduces a new architectural approach, alternative language, or restructured code that requires abandoning the current mental model",
+    "citation": "Nigg (2006)"
+  },
+  {
+    "id": "4",
+    "name": "Rejection Sensitivity",
+    "mechanism_text": "An amygdala-driven dysphoric response is triggered by perceived criticism or negative evaluation. The intensity of the emotional response is disproportionate to the stimulus and causes defensive disengagement from the task.",
+    "neuro_basis": "Hyperreactive amygdala response to perceived social evaluation; deficient emotional self-regulation (Surman et al. 2013)",
+    "sdlc_manifestation": "Developer experiences shame, withdrawal, or task abandonment when the LLM frames corrections as errors, criticises prior attempts, or produces responses that imply the developer's approach was wrong",
+    "citation": "Surman et al. (2013)"
+  },
+  {
+    "id": "5",
+    "name": "Ambiguity Intolerance",
+    "mechanism_text": "A threat-appraisal loop is activated when outcomes are uncertain or probabilistic. The individual cannot commit to a course of action and enters a decision paralysis state, unable to proceed until certainty is achieved \u2014 which the situation does not provide.",
+    "neuro_basis": "Threat-appraisal activation in response to uncertain stimuli; intolerance of uncertainty (Carleton 2016)",
+    "sdlc_manifestation": "Developer cannot proceed when the LLM offers multiple conflicting solutions, non-deterministic outputs, or probabilistic recommendations without a clear single answer",
+    "citation": "Carleton (2016)"
+  },
+  {
+    "id": "6",
+    "name": "Inhibition Deficit",
+    "mechanism_text": "The failure of prepotent response suppression means the individual cannot filter out irrelevant stimuli or resist acting on peripheral information. Attention is captured by salient but task-irrelevant content, displacing the primary task.",
+    "neuro_basis": "Failure of behavioural inhibition and prepotent response suppression (Barkley 1997)",
+    "sdlc_manifestation": "Developer is involuntarily drawn into tangential LLM-generated content \u2014 unrequested refactors, explanations of adjacent concepts, or follow-up suggestions \u2014 abandoning the primary SDLC task",
+    "citation": "Barkley (1997)"
+  },
+  {
+    "id": "7",
+    "name": "Time Blindness",
+    "mechanism_text": "Impaired interval timing causes systematic underestimation of elapsed time and inability to gauge duration of waiting states. The individual loses awareness of how long a task has taken, disrupting deadline management and priority allocation.",
+    "neuro_basis": "Deficit in prospective temporal memory and interval timing; underestimation of elapsed time (Toplak et al. 2006)",
+    "sdlc_manifestation": "Developer loses track of time spent waiting for LLM output, build completion, or test runs, resulting in missed sprint deadlines or failure to escalate blocked tasks",
+    "citation": "Toplak et al. (2006)"
+  },
+  {
+    "id": "8",
+    "name": "Emotional Dysregulation",
+    "mechanism_text": "Deficient fronto-limbic connectivity impairs the ability to modulate emotional responses to repeated failure or frustration. Negative affect compounds with each failure event, escalating from mild frustration to full disengagement or crisis state.",
+    "neuro_basis": "Fronto-limbic connectivity deficit; impaired top-down regulation of subcortical emotion circuits (Shaw et al. 2014)",
+    "sdlc_manifestation": "Developer's frustration escalates beyond proportional levels when LLM repeatedly produces incorrect, incomplete, or contradictory outputs across multiple attempts in the same SDLC task",
+    "citation": "Shaw et al. (2014)"
+  }
+]

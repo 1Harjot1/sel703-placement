@@ -1,0 +1,6 @@
+Source URL: https://www.reddit.com/r/ExperiencedDevs/comments/1tqfcfj/anyone_else_realized_that_90_of_architecture_is/
+Subreddit: r/ExperiencedDevs
+Title: Anyone else realized that 90% of "architecture" is just talking to people?
+================================================================================
+
+I’m 6 years into this career and I think I finally hit the point where my first instinct to a performance issue isn't "let's spin up a Redis cluster." We had a legacy endpoint that was absolutely crawling. Two years ago, I would’ve spent a week refactoring queries or arguing for a message queue. Instead, I just looked at the logs, saw some random upstream team was hammering it with a cron job and sent their dev a quick Slack message asking if they even needed that data. Turns out it was for a feature they killed in 2023. They turned off the cron job, latency dropped, problem solved. It's kind of wild how much time we spend trying to solve social and communication problems with code. I used to think seniority meant knowing how to build massive distributed systems, but now it feels like half my job is just stopping people from building things we don't need. submitted by /u/Ok_Commission_8260 [link] [comments]

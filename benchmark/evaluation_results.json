@@ -1,0 +1,43 @@
+{
+  "overall_precision": 0.9756,
+  "overall_recall": 1.0,
+  "overall_f1": 0.9877,
+  "per_criterion": {
+    "COGA-4.2.4-WM": {
+      "tp": 8,
+      "fp": 0,
+      "fn": 0,
+      "tn": 6
+    },
+    "COGA-4.2.1-AMBIG": {
+      "tp": 11,
+      "fp": 1,
+      "fn": 0,
+      "tn": 2
+    },
+    "WCAG-3.3.4-INHIB": {
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "tn": 11
+    },
+    "WCAG-2.2.6-TIME": {
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "tn": 12
+    },
+    "EU-AI-ACT-ART13": {
+      "tp": 11,
+      "fp": 0,
+      "fn": 0,
+      "tn": 3
+    },
+    "EU-AI-ACT-ART14": {
+      "tp": 5,
+      "fp": 0,
+      "fn": 0,
+      "tn": 9
+    }
+  }
+}

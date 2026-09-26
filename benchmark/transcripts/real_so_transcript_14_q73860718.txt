@@ -1,0 +1,48 @@
+Source URL: https://stackoverflow.com/questions/73860718/tkinter-listbox-programmatically-selecting-listbox-item-disables-up-down-cursor
+Source Platform: Stack Overflow
+Question ID: 73860718
+Title: Tkinter Listbox: programmatically selecting Listbox item disables up/down cursor keys
+================================================================================
+
+The following code creates a standard listbox in tkinter. In normal use, after the user makes the first listbox selection with a mouse click, subsequent selections can be made either by clicking again with the mouse, or by using the up/down cursor keys. Both of these (mouse click and cursor keys) correctly trigger ListboxSelect and change the value of SelectedIndex using the associated function UserClickedSelection(event).
+
+
+The code also includes a function that allows me to set a listbox selection programmatically. This works perfectly, and correctly changes SelectedIndex using the SetSelection(index) function. But...and this is the problem...after making a selection programmatically, the up/down arrow keys no longer function. The user needs to make the next selection using the mouse, and then the up/down arrow keys once again function normally.
+
+
+```
+import tkinter as tk
+root = tk.Tk()
+root.geometry("300x300")
+
+SelectedIndex = 0
+
+def UserClickedSelection(event): # get user selection
+ global SelectedIndex
+ SelectedIndex = mylistbox.curselection()[0]
+
+def SetSelection(index): # set selection
+ global SelectedIndex
+ mylistbox.selection_clear(0,tk.END)
+ mylistbox.selection_set(index)
+ mylistbox.activate(index)
+ SelectedIndex = mylistbox.curselection()[0]
+ 
+mylistbox = tk.Listbox(root,activestyle="none")
+mylistbox.place(x=0,y=0)
+mylistbox.config(selectmode=tk.BROWSE)
+mylistbox.config(exportselection=False)
+mylistbox.bind(' >',UserClickedSelection)
+
+mylist = ['Zero','One','Two','Three','Four','Five']
+mylistbox.insert(0,*mylist)
+
+# Using function: set selection to index 2
+SetSelection(2)
+
+root.mainloop()
+
+```
+
+
+As you can see, in the code I've used the programmatic function to select index 2 of the listbox. This works fine, but the up/down arrow keys do not work until another selection is made afterwards using a mouse click. So there is clearly a difference between a "real" user selection and my "programmatic" selection. Is there some way to rectify this? I need the up/down arrow keys to work consistently. Thanks in advance for any assistance.

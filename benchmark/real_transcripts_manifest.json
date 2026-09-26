@@ -1,0 +1,222 @@
+[
+  {
+    "filename": "real_so_transcript_01_q79991118.txt",
+    "question_id": 79991118,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79991118/dxc-is-demanding-a-raypayload-attribute-in-the-shader-but-gives-an-error-if-i",
+    "title": "DXC is demanding a [raypayload] attribute in the shader, but gives an error if I insert it",
+    "actual_char_length": 874,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_02_q79989573.txt",
+    "question_id": 79989573,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79989573/how-to-test-sandboxed-file-access-in-electron-with-a-free-macos-developer-accoun",
+    "title": "How to test sandboxed file access in Electron with a free macOS developer account?",
+    "actual_char_length": 6220,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_03_q79985939.txt",
+    "question_id": 79985939,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79985939/idispatchinvoke-crashes-server-side-com-framework-for-basic-iaccessible-implem",
+    "title": "IDispatch::Invoke crashes server-side COM framework for basic IAccessible implementation for child count 1+ for IAccessible::get_accChildCount",
+    "actual_char_length": 19029,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_04_q79985557.txt",
+    "question_id": 79985557,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79985557/how-to-install-mcp-server-dev-for-github-copilot",
+    "title": "How to install mcp-server-dev for GitHub Copilot?",
+    "actual_char_length": 622,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_05_q79985662.txt",
+    "question_id": 79985662,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79985662/treedatagrid-with-xaml-defined-columns-cant-resolve-view-model-properties",
+    "title": "TreeDataGrid with XAML-defined columns can't resolve view model properties",
+    "actual_char_length": 4597,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_06_q79984358.txt",
+    "question_id": 79984358,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79984358/why-copilot-does-not-load-language-models-does-not-connect-to-mcp-server-cannot",
+    "title": "Why Copilot does not load language models/does not connect to MCP server/cannot even list available servers?",
+    "actual_char_length": 1964,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_07_q79981313.txt",
+    "question_id": 79981313,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79981313/office-local-plugin-is-unable-to-be-invoked-by-declarative-agent",
+    "title": "Office local plugin is unable to be invoked by Declarative Agent",
+    "actual_char_length": 3147,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_08_q79803611.txt",
+    "question_id": 79803611,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79803611/how-configure-github-copilot-in-vs-code-to-work-with-azure-openai-azure-ai-found",
+    "title": "How configure GitHub Copilot in VS Code to work with Azure OpenAI/Azure AI Foundry",
+    "actual_char_length": 1371,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_09_q79947663.txt",
+    "question_id": 79947663,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79947663/what-is-the-best-way-to-use-obsidian-for-vibe-coding-with-github-and-ai-coding-a",
+    "title": "What is the best way to use Obsidian for vibe coding with GitHub and AI coding assistants?",
+    "actual_char_length": 1554,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_10_q79872256.txt",
+    "question_id": 79872256,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79872256/monorepo-ai-tools-copilot-cursor-does-having-full-codebase-context-provide",
+    "title": "Monorepo + AI tools (Copilot, Cursor): does having full codebase context provide real advantages in practice?",
+    "actual_char_length": 1595,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_11_q79848144.txt",
+    "question_id": 79848144,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79848144/how-to-prevent-auto-scroll-during-streaming-when-user-manually-scrolls-up",
+    "title": "How to Prevent Auto-Scroll During Streaming When User Manually Scrolls Up?",
+    "actual_char_length": 4632,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_12_q77402347.txt",
+    "question_id": 77402347,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/77402347/position-the-image-to-the-right-relative-to-the-text-html-css",
+    "title": "Position the image to the right relative to the text HTML CSS",
+    "actual_char_length": 2178,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_13_q78972458.txt",
+    "question_id": 78972458,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/78972458/trouble-with-draggesture-and-snapping-3d-model-to-surface-in-visionos-using-arki",
+    "title": "Trouble with DragGesture and Snapping 3D Model to Surface in VisionOS using ARKit",
+    "actual_char_length": 3764,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_14_q73860718.txt",
+    "question_id": 73860718,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/73860718/tkinter-listbox-programmatically-selecting-listbox-item-disables-up-down-cursor",
+    "title": "Tkinter Listbox: programmatically selecting Listbox item disables up/down cursor keys",
+    "actual_char_length": 2074,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_15_q78564717.txt",
+    "question_id": 78564717,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/78564717/displaying-timestamp-and-username-in-message-prompt-in-go-tcp-chat-application",
+    "title": "Displaying Timestamp and Username in Message Prompt in Go TCP Chat Application - go",
+    "actual_char_length": 1284,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_16_q2966179.txt",
+    "question_id": 2966179,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/2966179/wpf-textbox-focus",
+    "title": "WPF TextBox Focus",
+    "actual_char_length": 429,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_17_q78167356.txt",
+    "question_id": 78167356,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/78167356/how-to-create-a-new-java-file-by-namespace-in-vs-code",
+    "title": "How to create a new Java file by namespace in VS Code?",
+    "actual_char_length": 1365,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_18_q77913204.txt",
+    "question_id": 77913204,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/77913204/inputconnectionadaptor7041-the-input-method-toggled-cursor-monitoring-on-off",
+    "title": "InputConnectionAdaptor(7041): The input method toggled cursor monitoring on/off problem in flutter",
+    "actual_char_length": 3849,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_19_q75965641.txt",
+    "question_id": 75965641,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/75965641/how-to-find-the-current-caret-cursor-index-of-a-contenteditable-true-p-tag",
+    "title": "How to find the current caret/cursor index of a contenteditable=true <p> tag",
+    "actual_char_length": 3870,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  },
+  {
+    "filename": "real_so_transcript_20_q79874549.txt",
+    "question_id": 79874549,
+    "source_platform": "Stack Overflow",
+    "source_url": "https://stackoverflow.com/questions/79874549/python-client-getting-stuck-when-sending-async-generator-to-server-over-httpx",
+    "title": "Python - Client getting stuck when sending async generator to server over httpx",
+    "actual_char_length": 2879,
+    "has_code_block": true,
+    "http_status_verified": 200,
+    "collection_date": "2026-08-07"
+  }
+]

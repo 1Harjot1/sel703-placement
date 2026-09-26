@@ -1,0 +1,49 @@
+Source URL: https://stackoverflow.com/questions/78167356/how-to-create-a-new-java-file-by-namespace-in-vs-code
+Source Platform: Stack Overflow
+Question ID: 78167356
+Title: How to create a new Java file by namespace in VS Code?
+================================================================================
+
+I use Visual Studio Code and Java 21 (plus Gradle and Spring Boot, if it matters):
+
+
+ The procedure I would like to perform: 
+
+ 
+ I manually (or with assistance of AI) write import: 
+ 
+
+```
+import com.example.subpackage.entity.MyNotYetExistingEntity
+
+```
+
+ 
+ The namespace is red underlined, because the class/interface doesn't exist yet. 
+ While my cursor in somewhere on the red underlined import, i trigger "Quick Fix..." menu with shortcut. ( - I know how to.) 
+ (I don't know how to do this:) Now I would select something like "Create new file (by namespace)" 
+ I would be prompted, If I would want to create class/interface/enum... New file MyNotYetExistingEntity.java would be created. It would be automatically placed in `ProjectFolder/src/java/com/example/subpackage/entity/`. Newly created file would look like this: 
+ 
+
+```
+package com.example.subpackage.entity;
+
+public class MyNotYetExistingEntity { // or 'interface' instead of 'class', for example
+
+}
+
+```
+
+
+If you have only alternative solutions, I would like to know them too. But as a lazy programmer, I am focused on efficiency, so I want to perform this action rapidly and without too many extra clicks.
+
+
+Among others, I have these extension enabled:
+
+ 
+ vscjava.vscode-java-pack 
+ richardwillis.vscode-gradle-extension-pack 
+ redhat.java 
+ 
+
+And none of these provides me the desired shortcut.
