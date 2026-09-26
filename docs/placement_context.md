@@ -1,4 +1,4 @@
-﻿# Placement Context & Engineering Infrastructure (SEL703)
+# Placement Context & Engineering Infrastructure (SEL703)
 
 This document describes the engineering objectives, scope, and technical infrastructure delivered during the research assistant placement.
 
