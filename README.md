@@ -21,24 +21,9 @@ The pipeline automates the generation of verifiable, empirically grounded develo
 
 To eliminate citation hallucination and data leakage, the pipeline enforces a **quote-selection-before-writing architecture**: the model must select a sentence identifier from a verified reference corpus *before* generating narrative prose, making citation fabrication structurally impossible.
 
-### Academic Governance & Separation from SIT723
+### Placement Context
 
-In accordance with supervisory guidance agreed with **Dr. Davoud Mougouei**, this repository explicitly separates technical software engineering deliverables from research findings:
-
-```
-┌────────────────────────────────────────────────────────────────────────┐
-│                        ACADEMIC UNIT ALIGNMENT                         │
-├───────────────────────────────────┬────────────────────────────────────┤
-│     SEL703 (Placement Unit)       │     SIT723 (Research Project)      │
-├───────────────────────────────────┼────────────────────────────────────┤
-│ • Focus: Research engineering &   │ • Focus: Empirical findings,       │
-│   reusable software infrastructure│   qualitative themes & models      │
-│ • Deliverable: Modular pipeline,  │ • Deliverable: Research paper      │
-│   test suite & interactive tools  │   manuscript & rater evaluations   │
-│ • Assessed On: Can the student    │ • Assessed On: Did the research    │
-│   build production research tools?│   advance the scientific field?    │
-└───────────────────────────────────┴────────────────────────────────────┘
-```
+Engineered and documented as part of a research assistant placement (SEL703) under Dr. Davoud Mougouei at Deakin University. The repository packages the modular scenario-generation engine, deterministic static verifiers, regression test suite, and cross-domain reusability demonstrations.
 
 ---
 
@@ -223,11 +208,12 @@ sel703-placement/
 │   ├── sample_verified_scenario.json
 │   ├── sample_retention_curve.json
 │   └── cross_domain_demo/         # 14 cross-domain scenarios & verification report
-├── docs/                          # Technical Architecture & Unit Governance
+├── docs/                          # Technical Architecture & Placement Documentation
 │   ├── architecture.md            # In-depth 6-stage architecture & failure modes
 │   ├── usage.md                   # Step-by-step developer manual with console transcripts
-│   ├── placement_context.md       # Institutional academic governance (SEL703 vs. SIT723)
-│   └── task_b_*.md                # Manual verification protocols & dysfunction justifications
+│   ├── placement_context.md       # Placement context & engineering infrastructure
+│   ├── task_b_dysfunction_justification.md # Formal justification for the 8 dysfunctions
+│   └── task_b_manual_verification_protocol.md # 4-step manual verification protocol
 └── logbook/                       # SEL703 Placement Weekly Progress Diaries (Weeks 1–11)
 ```
 

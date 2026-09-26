@@ -1,38 +1,39 @@
-# Placement Context & Infrastructure Reuse (SEL703 vs. SIT723)
+﻿# Placement Context & Engineering Infrastructure (SEL703)
 
-This document makes the institutional framing and reuse of this codebase explicit, defensible, and transparent.
-
----
-
-## 1. Distinct Academic Functions
-
-| Dimension | SEL703 Placement Unit | SIT723 Research Project |
-|:---|:---|:---|
-| **Primary Assessment** | Research Assistant Competency & Technical Engineering | Independent Research Contribution & Findings |
-| **Deliverable Focus** | Reusable infrastructure, verifiable test suites, interactive tooling, and rigorous documentation | Empirical dataset, statistical findings, qualitative taxonomy, and publication manuscript |
-| **Core Evaluation** | Can the student engineer, verify, package, and document research tools for other researchers to use? | Did the research advance the state of the art in cognitive accessibility for software engineering? |
-| **Supervisory Guidance** | Focused on development, testing, and packaging | Focused on research methodology and paper writing |
+This document describes the engineering objectives, scope, and technical infrastructure delivered during the research assistant placement.
 
 ---
 
-## 2. Provenance & Packaging Rationale
+## 1. Placement Scope & Engineering Objectives
 
-1. **Original Engineering Context:**  
-   This generation pipeline was originally engineered during the research assistant placement to support the scenario-generation and citation-verification requirements of the **SIT723** project on cognitive accessibility in AI coding assistants.
+- **Placement Unit:** SEL703 Professional Practice (School of Information Technology, Deakin University)
+- **Role:** Research Assistant
+- **Supervisor:** Dr. Davoud Mougouei
+- **Focus:** Research software engineering, deterministic verification pipelines, and reusable tooling infrastructure.
 
-2. **Why It Is Packaged Under SEL703:**  
-   SEL703 explicitly assesses the ability to deliver production-grade research engineering: building clean pipelines, writing reproducible test harnesses, preventing hallucinated data through structural design, and authoring exhaustive technical documentation. Documenting and packaging this infrastructure directly demonstrates research-assistant competency without claiming a second independent research finding.
-
-3. **Where Findings Are Reported:**  
-   The empirical research findings, qualitative themes, and statistical analyses belong strictly to **SIT723** and are reported in the SIT723 research manuscript.
+The core objective of this placement was to design, implement, and validate a production-grade scenario generation and verification pipeline capable of producing structurally grounded, citation-verified benchmarks without hallucination.
 
 ---
 
-## 3. What is Unique to the SEL703 Packaging
+## 2. Infrastructure Provenance & Packaging Rationale
 
-The standalone packaging contains substantial engineering created specifically for this placement deliverable:
-- **Interactive CLI Wizard (`ui/wizard.py`):** An accessible, zero-friction interface enabling external researchers to configure dimensions, run generations, and inspect grounded psychology citations without reading source code.
-- **Automated Verification Test Suite (`tests/`):** 15 unit tests verifying provenance gating, regex word-boundary label checks, quote-first lookup, and cross-domain standards.
-- **Decoupled Architecture & Schema:** Modular separation of concerns across `corpus_loader`, `verifier`, `generator`, `rater`, and `filter`.
-- **Word-Boundary Bug Remediation:** Identifying and documenting the substring match false positive on `"interface"` and fixing it in `src/verifier.py`.
-- **Cross-Domain Demonstration (`examples/cross_domain_demo/`):** Demonstrating zero-shot domain transfer by applying the pipeline architecture to international regulatory and accessibility standards (W3C COGA, WCAG 2.2, EU AI Act) with 14 compliance scenarios passing deterministic checks at 100.0%.
+1. **Engineering Context:**  
+   The scenario generation pipeline was developed during the placement to solve structural reliability challenges in LLM-assisted benchmark synthesis, specifically preventing citation hallucinations, buzzword contamination, and sampling skew.
+
+2. **Placement Deliverable Focus:**  
+   SEL703 assesses the capacity to engineer robust, maintainable, and reusable software systems:
+   - Constructing decoupled, modular pipeline components (`corpus_loader`, `verifier`, `generator`, `rater`, `filter`).
+   - Enforcing deterministic static verification with zero tolerance for silent errors.
+   - Creating comprehensive unit test regression suites.
+   - Demonstrating zero-shot cross-domain reusability across international regulatory standards.
+   - Providing accessible interactive interfaces for researchers and evaluators.
+
+---
+
+## 3. Core Technical Contributions Packaged in This Repository
+
+- **Interactive CLI Wizard (`ui/wizard.py`):** An accessible, zero-friction interface enabling researchers to configure dimensions, run generations, and inspect grounded citations without writing custom scripts.
+- **Automated Verification Test Suite (`tests/`):** 15 unit tests covering provenance gating, regex word-boundary label checks, quote-first lookup, and cross-domain standards.
+- **Decoupled Architecture & Schema:** Clean modular separation across `corpus_loader`, `verifier`, `generator`, `rater`, and `filter`.
+- **Word-Boundary Bug Remediation:** Identifying and documenting the substring match false positive on `"interface"` (`SCN-0176`, `SCN-0451`) and resolving it via word boundaries (`\bface\b`) in `src/verifier.py`.
+- **Cross-Domain Transfer Proof (`examples/cross_domain_demo/`):** Demonstrating general-purpose reusability by transferring the pipeline to international regulatory and accessibility standards (W3C COGA, WCAG 2.2, EU AI Act), achieving a 14/14 (100.0%) deterministic pass rate.

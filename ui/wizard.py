@@ -1,10 +1,10 @@
 """
-wizard.py — Interactive CLI Wizard for Scenario Generation Pipeline
+wizard.py  -  Interactive CLI Wizard for Scenario Generation Pipeline
 ====================================================================
 Provides an accessible, zero-friction interface for researchers and evaluators:
 1. Select Domain:
-   - Domain A: Cognitive Accessibility & Executive Dysfunction (Primary SIT723 Benchmark)
-   - Domain B: Regulatory & Accessibility Standards (SEL703 Cross-Domain Reusability Demo)
+   - Domain A: Cognitive Accessibility & Executive Dysfunction (Primary Benchmark)
+   - Domain B: Regulatory & Accessibility Standards (Cross-Domain Reusability Demo)
 2. Select generation dimensions (Dysfunction x LLM Behavior OR Standard x Interaction Mode).
 3. Trigger generation (via Live API, Authentic Offline Engine, or Grounded Exemplar).
 4. Inspect Grounded Citation Card & Stage 4 Deterministic Verification.
@@ -30,7 +30,7 @@ from src.filter import compute_retention_metrics
 
 def print_banner(domain_name: str = "GENERAL"):
     print("=" * 76)
-    print(" SEL703 / SIT723: GENERAL-PURPOSE SCENARIO GENERATION PIPELINE ")
+    print(" SEL703: GENERAL-PURPOSE SCENARIO GENERATION PIPELINE ")
     print(f" Mode: {domain_name.upper()} DOMAIN ")
     print(" Grounded Quote-Selection-Before-Writing Interface ")
     print("=" * 76)
@@ -100,7 +100,8 @@ def run_psychology_wizard(demo: bool = False, dysfunction_idx: int = None, behav
     print(f"      - Executive Dysfunction : {selected_dys['name']}")
     print(f"      - AI Assistant Behavior : {selected_beh['name']}")
     print(f"      - SDLC Context          : {selected_sdlc.get('full_name', selected_sdlc.get('task_name'))}")
-    print(f"      - Schwartz Human Value  : {selected_val['name']}")
+    val_display = str(selected_val['name']).replace('\u2014', ' - ').replace('\u2013', ' - ')
+    print(f"      - Schwartz Human Value  : {val_display}")
 
     # 3. Trigger Generation
     print(f"\n[3/4] Running Quote-First Generation...")
@@ -176,7 +177,7 @@ def run_standards_wizard(demo: bool = False, standard_idx: int = None):
         print("\n--- SELECT REGULATORY STANDARD / DIRECTIVE ---")
         for i, k in enumerate(std_keys, 1):
             entry = corpus[k]
-            print(f"  [{i}] {k}: {entry.get('standard_name')} — {entry.get('section', '')}")
+            print(f"  [{i}] {k}: {entry.get('standard_name')}  -  {entry.get('section', '')}")
         if demo:
             s_choice = 2 # W3C-COGA-4.2.1
             print(f"Demo mode auto-selected: [{s_choice}] {std_keys[s_choice-1]}")

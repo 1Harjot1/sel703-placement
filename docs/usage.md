@@ -11,12 +11,12 @@ Every command in this document was executed live on the system, and the console 
 The pipeline requires Python 3.10+ and standard data processing libraries.
 
 ```bash
-git clone https://github.com/1HarryChauhan/sel703-placement.git
+git clone https://github.com/1Harjot1/sel703-placement.git
 cd sel703-placement
 pip install -r requirements.txt
 ```
 
-### Verified Live Output:
+### Console Output:
 ```text
 Requirement already satisfied: pandas>=2.0.0 in c:\python312\lib\site-packages (2.2.2)
 Requirement already satisfied: openai>=1.0.0 in c:\python312\lib\site-packages (1.40.0)
@@ -60,7 +60,7 @@ Execute the 15-test unit suite verifying provenance gating, deterministic checks
 python -m unittest discover -s tests -v
 ```
 
-### Verified Live Output:
+### Console Output:
 ```text
 test_get_candidate_sentences (test_corpus_loader.TestCorpusLoader.test_get_candidate_sentences) ... ok
 test_load_taxonomies (test_corpus_loader.TestCorpusLoader.test_load_taxonomies) ... ok
@@ -93,10 +93,10 @@ OK
 python ui/wizard.py --demo --domain psychology
 ```
 
-#### Verified Live Output:
+#### Console Output:
 ```text
 ============================================================================
- SEL703 / SIT723: GENERAL-PURPOSE SCENARIO GENERATION PIPELINE 
+ SEL703: GENERAL-PURPOSE SCENARIO GENERATION PIPELINE 
  Mode: COGNITIVE ACCESSIBILITY & EXECUTIVE DYSFUNCTION DOMAIN 
  Grounded Quote-Selection-Before-Writing Interface 
 ============================================================================
@@ -132,7 +132,7 @@ Demo mode auto-selected: [1] Non-deterministic Output
       - Executive Dysfunction : Working Memory Overload
       - AI Assistant Behavior : Non-deterministic Output
       - SDLC Context          : Requirements analysis and evaluation
-      - Schwartz Human Value  : Self-Direction—Thought
+      - Schwartz Human Value  : Self-Direction - Thought
 
 [3/4] Running Quote-First Generation...
 [GENERATOR] No API key detected (OPENAI_API_KEY or GEMINI_API_KEY). Using authentic offline benchmark engine.
@@ -187,10 +187,10 @@ Wizard execution complete.
 python ui/wizard.py --demo --domain standards
 ```
 
-#### Verified Live Output:
+#### Console Output:
 ```text
 ============================================================================
- SEL703 / SIT723: GENERAL-PURPOSE SCENARIO GENERATION PIPELINE 
+ SEL703: GENERAL-PURPOSE SCENARIO GENERATION PIPELINE 
  Mode: REGULATORY & ACCESSIBILITY STANDARDS (CROSS-DOMAIN REUSABILITY) DOMAIN 
  Grounded Quote-Selection-Before-Writing Interface 
 ============================================================================
@@ -270,7 +270,7 @@ Wizard execution complete.
 python run_cross_domain_demo.py
 ```
 
-### Verified Live Output:
+### Console Output:
 ```text
 ==============================================================================
  SEL703: CROSS-DOMAIN DEMONSTRATION & REUSABILITY RUNNER 
@@ -323,7 +323,7 @@ Evaluate all 180 scenarios in `src/data/final_180.csv`:
 python verify_dataset.py --dataset src/data/final_180.csv
 ```
 
-### Verified Live Output:
+### Console Output:
 ```text
 Evaluating 180 scenarios from final_180.csv...
 ============================================================

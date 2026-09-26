@@ -1,12 +1,12 @@
 # TASK B.2: Formal Written Justification — The 8 Executive Dysfunctions
 
 **Audience:** Dr. Davoud / Examiners / Reviewers  
-**Author:** Harjot Singh Chauhan  
+**Author:** Harjot Singh  
 **Context:** Publication Methodology Defense & Scope Justification
 
 ---
 
-## 1. Methodology Paragraph (For SIT723 Paper Methodology Section)
+## 1. Grounded Methodology Defense: Theoretical Derivation
 
 > **Derivation of the Executive Dysfunction Set:**  
 > In cognitive psychology, no single, universally standardized taxonomy of executive dysfunction exists that can be adopted wholesale for software engineering contexts. Rather than synthesizing an ungrounded ad-hoc list, our taxonomy was derived by systematically assembling eight validated constructs from five foundational empirical models in cognitive science and neuropsychology. The core dimensions of **Working Memory Overload**, **Set-Shifting Cost**, and **Inhibition Deficit** reflect the canonical three-component "unity and diversity" model of executive function established by Miyake et al. (2000). To capture the temporal and affective self-regulatory difficulties observed in neurodivergent developers (notably ADHD and autism), we incorporated **Time Blindness** and **Emotional Dysregulation** from Barkley's (1997) extended behavioral inhibition model, alongside **Delay Aversion** from Sonuga-Barke's (2002, 2003) dual-pathway reinforcement-sensitivity framework. Finally, we integrated **Rejection Sensitivity** from Downey and Feldman's (1996) interpersonal processing model and **Ambiguity Intolerance** from Carleton et al.'s (2007) Intolerance of Uncertainty Scale (IUS). Each of the eight constructs is grounded in primary empirical literature with extracted verbatim findings, establishing a direct theoretical chain linking cognitive barriers to developer workflow disruptions.
