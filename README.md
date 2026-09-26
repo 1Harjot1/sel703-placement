@@ -154,7 +154,7 @@ Failed Checks             : 0 / 180
 
 ### 1. Environment Setup
 ```bash
-git clone https://github.com/1HarryChauhan/sel703-placement.git
+git clone https://github.com/1Harjot1/sel703-placement.git
 cd sel703-placement
 pip install -r requirements.txt
 ```
